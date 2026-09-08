@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<title>Julias Trainingsdashboard V2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Julias Training">
+<meta name="theme-color" content="#A32C52">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Julias%20Trainingsdashboard%22%2C%20%22short_name%22%3A%20%22Training%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22background_color%22%3A%20%22%23FBF3F2%22%2C%20%22theme_color%22%3A%20%22%23A32C52%22%7D">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#FBF3F2;
+    --surface:#FFFFFF;
+    --surface-alt:#FFF7F6;
+    --line:#F0D9DD;
+    --text:#2B2523;
+    --text-muted:#83766F;
+    --rose:#D94F72;
+    --rose-dark:#A32C52;
+    --rose-soft:#F6D2DA;
+    --rose-cell:#F3B7C8;
+    --rose-cell-text:#6E1836;
+    --grey-work:#E7E2E1;
+    --grey-work-text:#5B5450;
+    --gold:#CE9A44;
+    --gold-soft:#F5E6C8;
+    --zone1:#8FA6B8;
+    --zone2:#5FA687;
+    --zone3:#DDB13E;
+    --zone4:#DB7C3E;
+    --zone5:#BF3B3B;
+    --shadow: 0 3px 14px rgba(94,32,52,0.08);
+    --radius: 16px;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--font-body); width:100%; min-height:100%; }
+  body{ overflow-x:hidden; }
+
+  /* ---------- TOPBAR ---------- */
+  #topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    padding:max(12px, env(safe-area-inset-top)) 14px 12px 14px;
+    background:var(--surface); border-bottom:2px solid var(--rose-soft);
+  }
+  #topbar .tbleft{ display:flex; align-items:center; gap:10px; min-width:0; }
+  #heartToggle{ background:none; border:none; padding:6px; margin:-6px; color:var(--rose-dark); display:flex; }
+  #heartToggle svg{ width:26px; height:26px; }
+  #topbar h1{
+    font-family:var(--font-display); font-weight:600; font-size:17px; color:var(--rose-dark);
+    text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:5px;
+    margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .pulse-badge{
+    display:flex; align-items:center; gap:6px; background:var(--rose-soft); color:var(--rose-dark);
+    padding:6px 10px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap;
+  }
+  .pulse-line{ width:26px; height:14px; }
+  .pulse-line path{ fill:none; stroke:var(--rose-dark); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .pulse-anim{ stroke-dasharray:60; stroke-dashoffset:60; animation:pulsedraw 2.2s ease-in-out infinite; }
+  @keyframes pulsedraw{ 0%{stroke-dashoffset:60;} 55%{stroke-dashoffset:0;} 100%{stroke-dashoffset:-60;} }
+  .datebox{ text-align:right; }
+  .datebox .d1{ font-size:10.5px; color:var(--text-muted); }
+  .datebox .d2{ font-family:var(--font-mono); font-size:12.5px; font-weight:600; }
+
+  /* ---------- SLIDE-IN MENU ---------- */
+  #menuBackdrop{
+    position:fixed; inset:0; background:rgba(30,15,20,.44); z-index:90;
+    opacity:0; pointer-events:none; transition:opacity .22s ease;
+  }
+  #menuBackdrop.open{ opacity:1; pointer-events:auto; }
+  #menuPanel{
+    position:fixed; top:0; left:0; height:100%; width:82vw; max-width:310px; z-index:95;
+    background:var(--surface-alt); box-shadow:0 0 34px rgba(40,10,20,.25);
+    transform:translateX(-105%); transition:transform .25s ease;
+    display:flex; flex-direction:column;
+    padding-top: env(safe-area-inset-top);
+  }
+  #menuPanel.open{ transform:translateX(0); }
+  #menuPanel .menuhead{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px 10px 20px; }
+  #menuPanel .menuhead .mtitle{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:600; font-size:16px; color:var(--rose-dark); }
+  #menuPanel .menuhead .mtitle svg{ width:22px; height:22px; }
+  #menuClose{ background:none; border:none; color:var(--text-muted); padding:8px; font-size:20px; line-height:1; }
+  nav.navlist{ display:flex; flex-direction:column; gap:2px; padding:6px 10px; overflow-y:auto; }
+  .navbtn{
+    display:flex; align-items:center; gap:14px; min-height:52px;
+    padding:12px 14px; border-radius:12px; border:none; background:transparent; cursor:pointer;
+    font-family:var(--font-body); font-size:15px; font-weight:500; color:var(--text); text-align:left; width:100%;
+    border-left:3px solid transparent;
+  }
+  .navbtn svg{ width:21px; height:21px; flex:none; stroke:var(--text-muted); }
+  .navbtn.active{ background:var(--surface); border-left:3px solid var(--rose); box-shadow:var(--shadow); color:var(--rose-dark); font-weight:600; }
+  .navbtn.active svg{ stroke:var(--rose-dark); }
+  #menuPanel .sidefoot{ margin-top:auto; padding:16px 22px calc(16px + env(safe-area-inset-bottom)) 22px; font-size:11px; color:var(--text-muted); line-height:1.5; }
+
+  /* ---------- MAIN ---------- */
+  #main{
+    max-width:640px; margin:0 auto; width:100%;
+    padding:16px 14px calc(28px + env(safe-area-inset-bottom)) 14px;
+    display:block;
+  }
+  .view{ display:none; flex-direction:column; gap:14px; }
+  .view.active{ display:flex; }
+  .viewhead h2{ font-family:var(--font-display); font-size:19px; font-weight:600; margin:0; color:var(--text); }
+  .viewhead p{ margin:3px 0 0 0; font-size:12px; color:var(--text-muted); line-height:1.4; }
+
+  .card{ background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; border:1px solid var(--line); }
+  .card h3{ margin:0 0 10px 0; font-size:12.5px; font-weight:700; color:var(--rose-dark); text-transform:uppercase; letter-spacing:0.4px; }
+
+  .twoCol{ display:flex; flex-direction:column; gap:14px; }
+  .grid{ display:flex; flex-direction:column; gap:14px; }
+  @media (min-width:560px){
+    .twoCol{ display:grid; grid-template-columns:1fr 1fr; align-items:start; }
+    .grid{ display:grid; grid-template-columns:1fr 1fr; }
+  }
+  .stackGap{ display:flex; flex-direction:column; gap:14px; }
+
+  .scrolly{ max-height:min(60vh, 460px); overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .scrolly::-webkit-scrollbar{ width:6px; }
+  .scrolly::-webkit-scrollbar-thumb{ background:var(--rose-soft); border-radius:10px; }
+
+  table{ width:100%; border-collapse:collapse; font-size:12.5px; }
+  .scrolly table{ display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .scrolly table thead, .scrolly table tbody{ display:table; width:100%; min-width:480px; }
+  th{ text-align:left; font-size:10px; text-transform:uppercase; letter-spacing:0.3px; color:var(--text-muted); padding:6px 7px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--surface); }
+  td{ padding:8px 7px; border-bottom:1px solid #F5EAEC; font-family:var(--font-mono); font-size:12.5px; }
+  td.txt{ font-family:var(--font-body); }
+
+  .num{ font-family:var(--font-mono); font-weight:600; }
+  .tag{ display:inline-block; padding:3px 9px; border-radius:999px; font-size:11px; font-weight:600; }
+
+  button.btn{ font-family:var(--font-body); font-weight:600; font-size:14.5px; background:var(--rose); color:#fff; border:none; padding:13px 18px; min-height:48px; border-radius:12px; cursor:pointer; }
+  button.btn.secondary{ background:var(--surface-alt); color:var(--rose-dark); border:1px solid var(--rose-soft); }
+  #runSave, #strSave, #weightSave, #cycSave{ width:100%; }
+
+  input, select{ font-family:var(--font-body); font-size:16px; padding:12px 12px; min-height:48px; border:1px solid var(--line); border-radius:10px; background:var(--surface-alt); color:var(--text); width:100%; }
+  label{ font-size:11px; color:var(--text-muted); display:block; margin-bottom:5px; font-weight:600; text-transform:uppercase; letter-spacing:.3px; }
+  .field{ display:flex; flex-direction:column; gap:2px; }
+  .formrow{ display:flex; flex-direction:column; gap:12px; }
+  @media (min-width:480px){ .formrow{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); } }
+
+  .segbtns{ display:flex; flex-wrap:wrap; gap:6px; }
+  .segbtns button{ flex:1 1 30%; min-height:42px; padding:8px 4px; font-size:11.5px; border-radius:10px; border:1px solid var(--line); background:var(--surface-alt); color:var(--text-muted); cursor:pointer; font-family:var(--font-body); font-weight:600; }
+  .segbtns button.sel{ background:var(--rose); border-color:var(--rose); color:#fff; }
+
+  .weekstrip{ display:flex; flex-direction:column; gap:10px; }
+  .daycell{
+    display:grid; grid-template-columns:auto 1fr; column-gap:14px; row-gap:2px;
+    border-radius:14px; padding:13px 14px; position:relative;
+  }
+  .daycell.work{ background:var(--grey-work); color:var(--grey-work-text); }
+  .daycell.train{ background:var(--rose-cell); color:var(--rose-cell-text); }
+  .daycell.period{ background:linear-gradient(135deg, #EFC2BC 0%, #E39B93 100%); color:#6B241A; border-left:4px solid #B23A2E; }
+  .daycell .dlabel{ font-size:10px; text-transform:uppercase; letter-spacing:.4px; font-weight:700; opacity:.8; }
+  .daycell .ddate{ font-family:var(--font-mono); font-size:11px; opacity:.85; }
+  .daycell .dtitle{ font-size:14px; font-weight:700; }
+  .daycell .ddesc{ font-size:11.5px; line-height:1.35; }
+  .daycell.today{ outline:3px solid var(--rose-dark); outline-offset:-3px; }
+  .daycell .dflag{ position:absolute; top:8px; right:10px; font-size:9.5px; font-weight:700; background:rgba(255,255,255,.55); padding:2px 7px; border-radius:999px; }
+  .daycell .dtitle{ display:flex; align-items:center; gap:6px; }
+  .daycheck{ display:inline-flex; align-items:center; justify-content:center; width:19px; height:19px; border-radius:50%; background:rgba(255,255,255,.6); color:#8a8480; font-weight:900; font-size:11px; flex:none; }
+  .daycheck.done{ background:#3E9B5C; color:#fff; }
+
+  .statrow{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  @media (min-width:480px){ .statrow{ grid-template-columns:repeat(4,1fr); } }
+  .stattile{ background:var(--surface-alt); border:1px solid var(--line); border-radius:12px; padding:11px 12px; }
+  .stattile .slabel{ font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.3px; font-weight:600; }
+  .stattile .sval{ font-family:var(--font-mono); font-size:19px; font-weight:700; color:var(--rose-dark); margin-top:2px; }
+  .stattile .ssub{ font-size:10.5px; color:var(--text-muted); margin-top:2px; }
+
+  .zonebar{ display:flex; flex-direction:column; gap:7px; }
+  .zonerow{ display:flex; align-items:center; gap:9px; font-size:12px; }
+  .zoneswatch{ width:13px; height:13px; border-radius:4px; flex:none; }
+  .zonename{ flex:1; font-weight:600; }
+  .zonerange{ font-family:var(--font-mono); color:var(--text-muted); font-size:11.5px; }
+
+  .badge{ display:flex; align-items:center; gap:10px; padding:11px 12px; border-radius:12px; background:var(--surface-alt); border:1px solid var(--line); }
+  .badge.locked{ opacity:.42; }
+  .badge .bicon{ width:32px; height:32px; border-radius:50%; background:var(--gold-soft); display:flex; align-items:center; justify-content:center; flex:none; }
+  .badge .bicon svg{ width:17px; height:17px; stroke:var(--gold); }
+  .badge .btitle{ font-size:12.5px; font-weight:700; }
+  .badge .bdesc{ font-size:10.5px; color:var(--text-muted); }
+
+  .exrow{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:4px 10px; margin-bottom:8px; }
+  .exrow .exname{ font-size:13px; font-weight:600; flex:1 1 100%; }
+  .pill{ font-size:10.5px; padding:3px 8px; border-radius:999px; background:var(--rose-soft); color:var(--rose-dark); font-weight:700; }
+
+  .strSetRow{ display:flex; flex-direction:column; gap:8px; padding:12px 0; border-bottom:1px solid var(--line); counter-reset:setnum; }
+  .strSetRow:last-child{ border-bottom:none; }
+  .strSetRow .exname{ font-size:13.5px; font-weight:600; line-height:1.3; }
+  .strSetRow .setlbl{ display:none; }
+  .setpair{ display:flex; align-items:center; gap:8px; }
+  .setpair::before{ counter-increment:setnum; content:"Satz " counter(setnum); font-size:10.5px; font-weight:700; color:var(--text-muted); width:50px; flex:none; }
+  .setpair input{ flex:1; min-width:0; }
+
+  .infobox{ background:var(--surface-alt); border-left:3px solid var(--rose); border-radius:8px; padding:11px 12px; font-size:12.5px; line-height:1.5; color:var(--text); }
+  .chatmsg{ max-width:88%; padding:10px 13px; border-radius:14px; font-size:13.5px; line-height:1.55; white-space:pre-wrap; }
+  .chatmsg.user{ align-self:flex-end; background:var(--rose); color:#fff; border-bottom-right-radius:4px; }
+  .chatmsg.assistant{ align-self:flex-start; background:var(--surface-alt); border:1px solid var(--line); border-bottom-left-radius:4px; }
+  .chatmsg .chip{ display:inline-block; margin-top:7px; font-size:10.5px; font-weight:700; padding:2px 9px; border-radius:999px; }
+  .chatmsg.assistant .chip{ background:var(--rose-soft); color:var(--rose-dark); }
+  .chatmsg.user .chip{ background:rgba(255,255,255,.3); color:#fff; }
+  .chatloading{ align-self:flex-start; font-size:12.5px; color:var(--text-muted); font-style:italic; padding:2px 4px; }
+  ::placeholder{ color:#C9B9BC; }
+</style>
+
+</head>
+
+<body>
+<div id="menuBackdrop"></div>
+<nav id="menuPanel">
+  <div class="menuhead">
+    <div class="mtitle">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.3-8.1C1.1 10.6 1.4 7.6 3.6 5.9c2-1.55 4.7-1.2 6.2.6l2.2 2.6 2.2-2.6c1.5-1.8 4.2-2.15 6.2-.6 2.2 1.7 2.5 4.7.9 7-2.6 3.75-9.3 8.1-9.3 8.1z"/></svg>
+      Menü
+    </div>
+    <button id="menuClose">✕</button>
+  </div>
+  <nav class="navlist" id="navlist"></nav>
+  <div class="sidefoot">Läuft für Julia<br>seit 6 Jahren unterwegs 💪</div>
+</nav>
+
+<div id="topbar">
+  <div class="tbleft">
+    <button id="heartToggle" title="Menü öffnen">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.3-8.1C1.1 10.6 1.4 7.6 3.6 5.9c2-1.55 4.7-1.2 6.2.6l2.2 2.6 2.2-2.6c1.5-1.8 4.2-2.15 6.2-.6 2.2 1.7 2.5 4.7.9 7-2.6 3.75-9.3 8.1-9.3 8.1z"/></svg>
+    </button>
+    <h1>Julias Trainingsdashboard</h1>
+  </div>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <div class="pulse-badge">
+      <svg class="pulse-line" viewBox="0 0 60 24"><path class="pulse-anim" d="M0,12 L14,12 L19,3 L25,21 L30,12 L60,12"/></svg>
+      <span id="cycleDayBadge">Trainingstag</span>
+    </div>
+    <div class="datebox">
+      <div class="d1" id="todayWeekday">—</div>
+      <div class="d2" id="todayDate">—</div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+      <main id="main">
+
+        <!-- ============ HOME ============ -->
+        <section class="view active" id="view-home">
+          <div class="viewhead">
+            <div><h2>Dashboard von Julia</h2><p>Dein aktueller 5-Tage-Rhythmus im Überblick</p></div>
+          </div>
+
+          <div class="card">
+            <h3>Aktuelle Trainingswoche (5-Tage-Rhythmus)</h3>
+            <div class="weekstrip" id="homeWeekStrip"></div>
+          </div>
+
+          <div class="twoCol" style="flex:1; min-height:0;">
+            <div class="stackGap">
+              <div class="statrow" id="homeStatRow"></div>
+              <div class="card" style="flex:1; min-height:0; display:flex; flex-direction:column;">
+                <h3>Persönliche Bestleistungen</h3>
+                <div class="statrow" id="homePBRow"></div>
+              </div>
+            </div>
+            <div class="card" style="min-height:0; display:flex; flex-direction:column;">
+              <h3>Deine Erfolge</h3>
+              <div class="scrolly stackGap" id="homeBadges" style="gap:8px;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TRAININGSPLAN ============ -->
+        <section class="view" id="view-plan">
+          <div class="viewhead">
+            <div><h2>Trainingsplan</h2><p>Rollierend geplant im 5-Tage-Rhythmus — passt sich Schichtdienst &amp; Zyklus an</p></div>
+            <div style="display:flex; gap:8px;">
+              <button class="btn secondary" id="planPrev">◀ vorheriger Block</button>
+              <button class="btn secondary" id="planNext">nächster Block ▶</button>
+            </div>
+          </div>
+          <div class="card scrolly" style="flex:1;">
+            <div id="planBlocks" class="stackGap"></div>
+          </div>
+        </section>
+
+        <!-- ============ LAUFEN ============ -->
+        <section class="view" id="view-run">
+          <div class="viewhead">
+            <div><h2>Laufen</h2><p>Pulsgesteuertes Training — Tempo ist Nebensache, die Zone zählt</p></div>
+          </div>
+          <div class="twoCol" style="flex:1; min-height:0;">
+            <div class="stackGap">
+              <div class="card">
+                <h3>Deine Pulszonen</h3>
+                <div class="zonebar" id="zoneList"></div>
+                <div class="infobox" style="margin-top:10px;" id="hrInsight"></div>
+              </div>
+              <div class="card">
+                <h3>Lauf eintragen</h3>
+                <div class="formrow">
+                  <div class="field"><label>Datum</label><input type="date" id="runDate"></div>
+                  <div class="field"><label>Distanz (km)</label><input type="number" step="0.01" id="runDist" placeholder="5.00"></div>
+                  <div class="field"><label>Zeit (hh:mm:ss)</label><input type="text" id="runTime" placeholder="00:32:00"></div>
+                  <div class="field"><label>Ø Puls</label><input type="number" id="runHr" placeholder="150"></div>
+                </div>
+                <div class="field" style="margin-top:10px;">
+                  <label>Gefühl</label>
+                  <div class="segbtns" id="runFeel">
+                    <button data-v="1">Sehr schwer</button><button data-v="2">Schwer</button><button data-v="3">Ok</button><button data-v="4">Gut</button><button data-v="5">Top</button>
+                  </div>
+                </div>
+                <div class="field" style="margin-top:10px;"><label>Notizen (optional)</label><input type="text" id="runNote" placeholder="z.B. Wetter, Strecke, Befinden"></div>
+                <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+                  <button class="btn" id="runSave">Lauf speichern</button>
+                  <span id="runSaveMsg" style="font-size:12px; color:var(--rose-dark); font-weight:600;"></span>
+                </div>
+              </div>
+            </div>
+            <div class="card" style="min-height:0; display:flex; flex-direction:column;">
+              <h3>Verlauf (<span id="runCount">0</span> Läufe)</h3>
+              <div class="scrolly" style="flex:1;">
+                <table>
+                  <thead><tr><th>Datum</th><th>Strecke</th><th>km</th><th>Zeit</th><th>Pace</th><th>Ø Puls</th><th>Zone</th><th></th></tr></thead>
+                  <tbody id="runTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ KRAFT ============ -->
+        <section class="view" id="view-strength">
+          <div class="viewhead">
+            <div><h2>Krafttraining</h2><p>Ganzkörperplan fürs Studio — schont die rechte Hand, stärkt Rumpf &amp; Rücken</p></div>
+          </div>
+          <div class="segbtns" style="max-width:320px;">
+            <button id="modeKraftBtn" class="sel" onclick="switchStrengthMode('kraft')">Krafttraining</button>
+            <button id="modeHyroxBtn" onclick="switchStrengthMode('hyrox')">Hyrox-Workout</button>
+          </div>
+          <div class="twoCol" style="flex:1; min-height:0;">
+            <div class="card scrolly">
+              <h3>Dein Plan</h3>
+              <div id="strengthPlanList"></div>
+              <div class="infobox" style="margin-top:8px;">Bei Zugübungen (Rudern, Latzug) auf ein Ziehen im rechten Unterarm achten — bei Bedarf Straps nutzen, Gewicht reduzieren oder auf eine Maschine wechseln. Der Rumpf-/Rückenblock ist bewusst umfangreich, um deine Haltung bei der Skoliose zu unterstützen. Regelmäßig ist wichtiger als schwer.</div>
+            </div>
+            <div class="stackGap">
+              <div class="card" id="kraftFormBlock">
+                <h3>Krafteinheit eintragen</h3>
+                <div class="infobox" style="margin-bottom:8px;">Grau hinterlegte Zahlen in den Feldern zeigen deine zuletzt gespeicherten Werte — so siehst du direkt, wo du beim Gewicht steigern kannst.</div>
+                <div class="field"><label>Datum</label><input type="date" id="strDate"></div>
+                <div class="scrolly" id="strExerciseRows" style="max-height:min(45vh,340px); margin-top:8px;"></div>
+                <div class="field" style="margin-top:8px;">
+                  <label>Gefühl (ganze Einheit)</label>
+                  <div class="segbtns" id="strFeel">
+                    <button data-v="1">Sehr schwer</button><button data-v="2">Schwer</button><button data-v="3">Ok</button><button data-v="4">Gut</button><button data-v="5">Top</button>
+                  </div>
+                </div>
+                <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+                  <button class="btn" id="strSave">Krafteinheit speichern</button>
+                  <span id="strSaveMsg" style="font-size:12px; color:var(--rose-dark); font-weight:600;"></span>
+                </div>
+              </div>
+              <div class="card" id="hyroxFormBlock" style="display:none;">
+                <h3>Hyrox-Workout eintragen</h3>
+                <div class="field"><label>Datum</label><input type="date" id="hyroxDate"></div>
+                <div class="field" style="margin-top:8px;">
+                  <label>Gefühl (ganze Einheit)</label>
+                  <div class="segbtns" id="hyroxFeel">
+                    <button data-v="1">Sehr schwer</button><button data-v="2">Schwer</button><button data-v="3">Ok</button><button data-v="4">Gut</button><button data-v="5">Top</button>
+                  </div>
+                </div>
+                <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+                  <button class="btn" id="hyroxSave">Hyrox-Workout speichern</button>
+                  <span id="hyroxSaveMsg" style="font-size:12px; color:var(--rose-dark); font-weight:600;"></span>
+                </div>
+              </div>
+              <div class="card scrolly" style="flex:1;">
+                <h3>Verlauf</h3>
+                <div id="strHistory"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ YOGA ============ -->
+        <section class="view" id="view-yoga">
+          <div class="viewhead">
+            <div><h2>Yoga &amp; Dehnen</h2><p>Kurz und wirksam gegen Nacken-/Haltungsprobleme — sanft an intensitätsreduzierten Tagen</p></div>
+          </div>
+          <div class="twoCol" style="flex:1; min-height:0;">
+            <div class="card">
+              <h3>Tägliche Dehn- &amp; Stabiroutine (5–10 Min., an jedem Trainingstag, besonders nach dem Laufen)</h3>
+              <div id="stretchList"></div>
+            </div>
+            <div class="card">
+              <h3>Sanftes Yoga bei reduzierter Intensität</h3>
+              <div id="yogaList"></div>
+              <div class="infobox" style="margin-top:8px;" id="yogaTip"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ZYKLUS ============ -->
+        <section class="view" id="view-cycle">
+          <div class="viewhead">
+            <div><h2>Zyklus-Tracking</h2><p>Wird automatisch in den Trainingsplan integriert — jederzeit anpassbar</p></div>
+          </div>
+          <div class="card">
+            <h3>Aktuelle Phase &amp; Tipps</h3>
+            <div id="cyclePhaseBox"></div>
+          </div>
+          <div class="twoCol" style="flex:1; min-height:0;">
+            <div class="card">
+              <h3>Einstellungen</h3>
+              <div class="formrow">
+                <div class="field"><label>Letzter Periodenbeginn</label><input type="date" id="cycStart"></div>
+                <div class="field"><label>Zykluslänge (Tage)</label><input type="number" id="cycLen"></div>
+                <div class="field"><label>Periodendauer (Tage)</label><input type="number" id="cycDur"></div>
+              </div>
+              <button class="btn" id="cycSave" style="margin-top:12px;">Speichern</button>
+              <div class="infobox" style="margin-top:14px;" id="cycleStatus"></div>
+              <div class="infobox" style="margin-top:10px;">An Tag 1–2 deiner Periode ist meist noch annähernd normale Intensität möglich. Ab Tag 3–5 wird dein Trainingsplan automatisch reduziert — nur das, was dir guttut. Wärme, sanfte Bewegung und tiefe Atmung können helfen.</div>
+            </div>
+            <div class="card scrolly">
+              <h3>Kommende Zyklen</h3>
+              <table>
+                <thead><tr><th>Periode ca.</th><th>Reduziert (Tag 3–5)</th></tr></thead>
+                <tbody id="cycleTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ GEWICHT ============ -->
+        <section class="view" id="view-weight">
+          <div class="viewhead">
+            <div><h2>Gewicht</h2><p>Dein Körpergewicht im Verlauf — ganz ohne Wertung, nur zum Nachvollziehen</p></div>
+          </div>
+          <div class="twoCol" style="flex:1; min-height:0;">
+            <div class="stackGap">
+              <div class="statrow" style="grid-template-columns:repeat(2,1fr);" id="weightStatRow"></div>
+              <div class="card">
+                <h3>Gewicht eintragen</h3>
+                <div class="formrow">
+                  <div class="field"><label>Datum</label><input type="date" id="weightDate"></div>
+                  <div class="field"><label>Gewicht (kg)</label><input type="number" step="0.1" id="weightVal" placeholder="z.B. 62.4"></div>
+                </div>
+                <div class="field" style="margin-top:10px;"><label>Notiz (optional)</label><input type="text" id="weightNote" placeholder="z.B. morgens nüchtern"></div>
+                <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+                  <button class="btn" id="weightSave">Gewicht speichern</button>
+                  <span id="weightSaveMsg" style="font-size:12px; color:var(--rose-dark); font-weight:600;"></span>
+                </div>
+              </div>
+              <div class="card scrolly" style="flex:1; min-height:0;">
+                <h3>Verlauf</h3>
+                <table>
+                  <thead><tr><th>Datum</th><th>kg</th><th>Δ</th><th class="txt">Notiz</th><th></th></tr></thead>
+                  <tbody id="weightTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Trend</h3>
+              <div style="height:320px;"><canvas id="chartWeight"></canvas></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ STATISTIK ============ -->
+        <section class="view" id="view-stats">
+          <div class="viewhead">
+            <div><h2>Statistik &amp; Fortschritt</h2><p>Alle eingetragenen Werte fließen automatisch ein</p></div>
+          </div>
+          <div class="grid">
+            <div class="card"><h3>Kilometer pro Monat</h3><div style="height:200px;"><canvas id="chartKm"></canvas></div></div>
+            <div class="card"><h3>Pace-Entwicklung</h3><div style="height:200px;"><canvas id="chartPace"></canvas></div></div>
+            <div class="card"><h3>Läufe nach Pulszone (Ø-Puls je Einheit)</h3><div style="height:200px;"><canvas id="chartZone"></canvas></div></div>
+            <div class="card scrolly"><h3>Kraft-Fortschritt</h3><div id="strengthProgress"></div></div>
+          </div>
+        </section>
+
+        <!-- ============ ERFOLGE ============ -->
+        <section class="view" id="view-badges">
+          <div class="viewhead">
+            <div><h2>Erfolge</h2><p>Kleine Meilensteine, große Motivation</p></div>
+          </div>
+          <div class="card scrolly" style="flex:1;">
+            <div class="grid" id="badgeGrid"></div>
+          </div>
+        </section>
+
+      </main>
+
+<!-- Corner Timer Widget -->
+<div id="cornerTimer" style="display:none; position:fixed; bottom:100px; right:14px; z-index:120; background:var(--rose-dark); color:#fff; border-radius:16px; padding:12px 14px; box-shadow:0 8px 24px rgba(40,10,20,.35); flex-direction:column; align-items:center; gap:6px; min-width:140px;">
+  <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+    <span id="cornerTimerLabel" style="font-size:11px; font-weight:700; opacity:.9;">Timer</span>
+    <button onclick="closeCornerTimer()" style="background:none; border:none; color:#fff; font-size:16px; line-height:1; padding:2px 4px; opacity:.8;">✕</button>
+  </div>
+  <div id="cornerTimerDisplay" style="font-family:var(--font-mono); font-size:30px; font-weight:700;">0:00</div>
+  <div style="display:flex; gap:6px;">
+    <button onclick="startCornerTimer(timerRemaining||timerTotal, document.getElementById('cornerTimerLabel').textContent)" style="background:rgba(255,255,255,.18); border:none; color:#fff; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:700;">▶ Start</button>
+    <button onclick="pauseCornerTimer()" style="background:rgba(255,255,255,.18); border:none; color:#fff; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:700;">⏸</button>
+    <button onclick="resetCornerTimer()" style="background:rgba(255,255,255,.18); border:none; color:#fff; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:700;">↺</button>
+  </div>
+</div>
+
+<!-- Save Toast -->
+<div id="saveToast" style="display:none; position:fixed; left:14px; right:14px; bottom:18px; z-index:130; background:var(--surface); border:1px solid var(--rose-soft); box-shadow:0 8px 24px rgba(40,10,20,.2); border-radius:14px; padding:13px 14px; max-width:520px; margin:0 auto;">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+    <div id="saveToastText" style="font-size:13px; line-height:1.45; color:var(--text);"></div>
+    <button onclick="hideSaveToast()" style="background:none; border:none; color:var(--text-muted); font-size:16px; line-height:1; flex:none;">✕</button>
+  </div>
+</div>
+
+<!-- Day Detail Modal -->
+<div id="dayModalBackdrop" style="display:none; position:fixed; inset:0; background:rgba(30,15,20,.44); z-index:140;" onclick="closeDayModal()"></div>
+<div id="dayModal" style="display:none; position:fixed; left:14px; right:14px; top:10%; max-width:520px; margin:0 auto; z-index:145; background:var(--surface); border-radius:18px; padding:20px; box-shadow:0 12px 40px rgba(40,10,20,.35); max-height:78vh; overflow-y:auto;">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+    <h3 id="dayModalTitle" style="margin:0; font-size:16px; color:var(--rose-dark); text-transform:none; letter-spacing:0;">Details</h3>
+    <button onclick="closeDayModal()" style="background:none; border:none; color:var(--text-muted); font-size:20px; line-height:1;">✕</button>
+  </div>
+  <div id="dayModalBody" style="margin-top:12px; font-size:13px; line-height:1.6;"></div>
+</div>
+
+</main>
+<script>
+/* =====================================================================
+   SEED-DATEN: echte Laufhistorie aus Julias Garmin-Export
+===================================================================== */
+const SEED_RUNS = [{"date": "2024-10-20", "title": "Neckarsulm Laufen", "distanceKm": 5.0, "time": "00:31:18", "pace": "6:16", "paceSec": 376, "avgHr": 164, "maxHr": 195, "calories": 339}, {"date": "2024-10-24", "title": "Neckarsulm Laufen", "distanceKm": 1.69, "time": "00:12:58", "pace": "7:41", "paceSec": 461, "avgHr": 153, "maxHr": 176, "calories": 118}, {"date": "2024-11-09", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:31:21", "pace": "6:16", "paceSec": 376, "avgHr": 171, "maxHr": 193, "calories": 346}, {"date": "2024-11-20", "title": "Öhringen Laufen", "distanceKm": 5.01, "time": "00:33:12", "pace": "6:37", "paceSec": 397, "avgHr": 161, "maxHr": 194, "calories": 344}, {"date": "2024-11-24", "title": "Neckarsulm Laufen", "distanceKm": 5.04, "time": "00:35:18", "pace": "7:01", "paceSec": 421, "avgHr": 174, "maxHr": 188, "calories": 364}, {"date": "2025-01-16", "title": "Neckarsulm Laufen", "distanceKm": 6.52, "time": "00:46:41", "pace": "7:10", "paceSec": 430, "avgHr": 178, "maxHr": 189, "calories": 479}, {"date": "2025-01-22", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:34:38", "pace": "6:55", "paceSec": 415, "avgHr": 149, "maxHr": 156, "calories": 336}, {"date": "2025-01-26", "title": "Neckarsulm Laufen", "distanceKm": 5.3, "time": "00:36:03", "pace": "6:48", "paceSec": 408, "avgHr": 155, "maxHr": 175, "calories": 365}, {"date": "2025-02-01", "title": "Neckarsulm Laufen", "distanceKm": 10.0, "time": "01:12:07", "pace": "7:13", "paceSec": 433, "avgHr": 177, "maxHr": 192, "calories": 767}, {"date": "2025-02-05", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:35:19", "pace": "7:03", "paceSec": 423, "avgHr": 155, "maxHr": 180, "calories": 343}, {"date": "2025-02-07", "title": "Neckarsulm Laufen", "distanceKm": 6.37, "time": "00:49:36", "pace": "7:47", "paceSec": 467, "avgHr": 165, "maxHr": 182, "calories": 458}, {"date": "2025-02-11", "title": "Neckarsulm Laufen", "distanceKm": 2.97, "time": "00:20:53", "pace": "7:01", "paceSec": 421, "avgHr": 169, "maxHr": 177, "calories": 212}, {"date": "2025-02-11", "title": "Heilbronn Laufen", "distanceKm": 7.36, "time": "00:54:53", "pace": "7:27", "paceSec": 447, "avgHr": 169, "maxHr": 182, "calories": 523}, {"date": "2025-02-13", "title": "Öhringen Laufen", "distanceKm": 0.28, "time": "00:31:08", "pace": "--", "paceSec": null, "avgHr": 182, "maxHr": 190, "calories": 377}, {"date": "2025-02-27", "title": "Neckarsulm Laufen", "distanceKm": 5.02, "time": "00:39:04", "pace": "7:47", "paceSec": 467, "avgHr": 164, "maxHr": 180, "calories": 357}, {"date": "2025-03-03", "title": "Neckarsulm Laufen", "distanceKm": 7.01, "time": "00:45:44", "pace": "6:31", "paceSec": 391, "avgHr": 181, "maxHr": 190, "calories": 509}, {"date": "2025-03-07", "title": "Heilbronn Laufen", "distanceKm": 10.0, "time": "01:09:59", "pace": "7:00", "paceSec": 420, "avgHr": 180, "maxHr": 194, "calories": 729}, {"date": "2025-03-18", "title": "Neckarsulm Laufen", "distanceKm": 7.05, "time": "00:46:17", "pace": "6:34", "paceSec": 394, "avgHr": 177, "maxHr": 190, "calories": 506}, {"date": "2025-03-22", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:30:41", "pace": "6:08", "paceSec": 368, "avgHr": 175, "maxHr": 193, "calories": 344}, {"date": "2025-03-27", "title": "Neckarsulm Laufen", "distanceKm": 12.01, "time": "01:23:49", "pace": "6:59", "paceSec": 419, "avgHr": 177, "maxHr": 186, "calories": 856}, {"date": "2025-03-31", "title": "Neckarsulm Laufen", "distanceKm": 6.51, "time": "00:42:18", "pace": "6:30", "paceSec": 390, "avgHr": 175, "maxHr": 190, "calories": 454}, {"date": "2025-04-07", "title": "Neckarsulm Laufen", "distanceKm": 7.18, "time": "00:45:31", "pace": "6:20", "paceSec": 380, "avgHr": 176, "maxHr": 186, "calories": 492}, {"date": "2025-04-26", "title": "Matara Laufen", "distanceKm": 5.01, "time": "00:34:27", "pace": "6:53", "paceSec": 413, "avgHr": 180, "maxHr": 191, "calories": 367}, {"date": "2025-05-05", "title": "Neckarsulm Laufen, mit Abbruch wegen Schmerzen🫡", "distanceKm": 3.38, "time": "00:23:24", "pace": "6:55", "paceSec": 415, "avgHr": 160, "maxHr": 185, "calories": 232}, {"date": "2025-05-10", "title": "Sinsheim Laufen", "distanceKm": 6.01, "time": "00:38:57", "pace": "6:29", "paceSec": 389, "avgHr": 175, "maxHr": 192, "calories": 419}, {"date": "2025-05-12", "title": "10 km Lauf ⬆️ siehe weiter oben", "distanceKm": 0.74, "time": "00:04:45.0", "pace": "6:28", "paceSec": 388, "avgHr": 156, "maxHr": 169, "calories": 47}, {"date": "2025-05-12", "title": "10 km Lauf🏃🏼‍♀️💨", "distanceKm": 9.36, "time": "01:03:14", "pace": "6:45", "paceSec": 405, "avgHr": 184, "maxHr": 191, "calories": 690}, {"date": "2025-05-15", "title": "Neckarsulm Laufen", "distanceKm": 7.01, "time": "00:46:11", "pace": "6:35", "paceSec": 395, "avgHr": 176, "maxHr": 190, "calories": 497}, {"date": "2025-05-20", "title": "Neckarsulm Laufen", "distanceKm": 15.01, "time": "01:43:02", "pace": "6:52", "paceSec": 412, "avgHr": 183, "maxHr": 193, "calories": 1101}, {"date": "2025-05-25", "title": "Halbmarathon Würzburg", "distanceKm": 21.43, "time": "02:26:04", "pace": "6:49", "paceSec": 409, "avgHr": 190, "maxHr": 202, "calories": 1617}, {"date": "2025-06-04", "title": "Neckarsulm Laufen", "distanceKm": 5.65, "time": "00:39:43", "pace": "7:01", "paceSec": 421, "avgHr": 170, "maxHr": 184, "calories": 393}, {"date": "2025-06-11", "title": "Pulslauf 🫠🐌", "distanceKm": 9.43, "time": "01:16:04", "pace": "8:04", "paceSec": 484, "avgHr": 162, "maxHr": 185, "calories": 621}, {"date": "2025-06-15", "title": "5 km Laufband (6:40 min/km)", "distanceKm": 5.22, "time": "00:39:23", "pace": "7:32", "paceSec": 452, "avgHr": 164, "maxHr": 181, "calories": 393}, {"date": "2025-06-20", "title": "GA2 lauf", "distanceKm": 7.01, "time": "00:55:39", "pace": "7:56", "paceSec": 476, "avgHr": 162, "maxHr": 178, "calories": 462}, {"date": "2025-07-09", "title": "Neckarsulm Laufen", "distanceKm": 6.31, "time": "00:43:45", "pace": "6:56", "paceSec": 416, "avgHr": 174, "maxHr": 192, "calories": 438}, {"date": "2025-07-14", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:35:22", "pace": "7:04", "paceSec": 424, "avgHr": 172, "maxHr": 187, "calories": 344}, {"date": "2025-07-20", "title": "Zandvoort Laufen", "distanceKm": 4.01, "time": "00:26:32", "pace": "6:37", "paceSec": 397, "avgHr": 174, "maxHr": 185, "calories": 272}, {"date": "2025-07-29", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:33:40", "pace": "6:43", "paceSec": 403, "avgHr": 176, "maxHr": 190, "calories": 345}, {"date": "2025-07-31", "title": "Neckarsulm Laufen, GA2", "distanceKm": 10.01, "time": "01:17:54", "pace": "7:47", "paceSec": 467, "avgHr": 161, "maxHr": 179, "calories": 652}, {"date": "2025-08-05", "title": "Neckarsulm Laufen (GA3)", "distanceKm": 5.01, "time": "00:31:25", "pace": "6:16", "paceSec": 376, "avgHr": 182, "maxHr": 196, "calories": 342}, {"date": "2025-08-16", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:31:41", "pace": "6:19", "paceSec": 379, "avgHr": 181, "maxHr": 193, "calories": 340}, {"date": "2025-09-24", "title": "Laufbandtraining", "distanceKm": 5.38, "time": "00:32:46", "pace": "6:05", "paceSec": 365, "avgHr": 180, "maxHr": 190, "calories": 346}, {"date": "2025-09-28", "title": "Laufbandtraining", "distanceKm": 6.01, "time": "00:38:17", "pace": "6:22", "paceSec": 382, "avgHr": 166, "maxHr": 175, "calories": 368}, {"date": "2025-10-02", "title": "Laufbandtraining", "distanceKm": 5.0, "time": "00:33:00", "pace": "6:36", "paceSec": 396, "avgHr": 179, "maxHr": 190, "calories": 348}, {"date": "2025-10-04", "title": "Neckarsulm Laufen", "distanceKm": 6.63, "time": "00:44:34", "pace": "6:44", "paceSec": 404, "avgHr": 179, "maxHr": 190, "calories": 455}, {"date": "2025-10-29", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:34:41", "pace": "6:55", "paceSec": 415, "avgHr": 175, "maxHr": 189, "calories": 346}, {"date": "2025-11-07", "title": "Neckarsulm Laufen", "distanceKm": 6.01, "time": "00:44:41", "pace": "7:26", "paceSec": 446, "avgHr": 172, "maxHr": 186, "calories": 416}, {"date": "2025-11-09", "title": "Würzburg Laufen", "distanceKm": 7.01, "time": "00:44:32", "pace": "6:21", "paceSec": 381, "avgHr": 183, "maxHr": 193, "calories": 479}, {"date": "2025-11-12", "title": "Neckarsulm Laufen", "distanceKm": 5.12, "time": "00:34:42", "pace": "6:46", "paceSec": 406, "avgHr": 173, "maxHr": 189, "calories": 348}, {"date": "2025-11-16", "title": "Neckarsulm Laufen", "distanceKm": 5.73, "time": "00:41:03", "pace": "7:10", "paceSec": 430, "avgHr": 160, "maxHr": 190, "calories": 382}, {"date": "2025-11-18", "title": "Neckarsulm Laufen", "distanceKm": 8.01, "time": "00:54:05", "pace": "6:45", "paceSec": 405, "avgHr": 176, "maxHr": 190, "calories": 557}, {"date": "2025-11-21", "title": "Neckarsulm Laufen 🥶🧊⛄️", "distanceKm": 5.01, "time": "00:34:43", "pace": "6:56", "paceSec": 416, "avgHr": 175, "maxHr": 189, "calories": 354}, {"date": "2025-11-23", "title": "Neckarsulm Laufen", "distanceKm": 5.65, "time": "00:37:49", "pace": "6:41", "paceSec": 401, "avgHr": 172, "maxHr": 189, "calories": 388}, {"date": "2025-12-03", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:33:22", "pace": "6:40", "paceSec": 400, "avgHr": 166, "maxHr": 183, "calories": 334}, {"date": "2025-12-08", "title": "Neckarsulm Laufen", "distanceKm": 2.0, "time": "00:12:30", "pace": "6:14", "paceSec": 374, "avgHr": 157, "maxHr": 169, "calories": 125}, {"date": "2025-12-13", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:31:33", "pace": "6:18", "paceSec": 378, "avgHr": 171, "maxHr": 189, "calories": 338}, {"date": "2025-12-14", "title": "Neckarsulm Laufen", "distanceKm": 6.01, "time": "00:39:22", "pace": "6:33", "paceSec": 393, "avgHr": 174, "maxHr": 190, "calories": 420}, {"date": "2025-12-18", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:32:34", "pace": "6:30", "paceSec": 390, "avgHr": 174, "maxHr": 193, "calories": 350}, {"date": "2025-12-19", "title": "Öhringen Laufen", "distanceKm": 5.01, "time": "00:31:48", "pace": "6:21", "paceSec": 381, "avgHr": 163, "maxHr": 190, "calories": 333}, {"date": "2026-01-16", "title": "Neckarsulm Laufen", "distanceKm": 6.01, "time": "00:38:10", "pace": "6:21", "paceSec": 381, "avgHr": 181, "maxHr": 194, "calories": 437}, {"date": "2026-01-22", "title": "Neckarsulm Laufen", "distanceKm": 6.01, "time": "00:39:47", "pace": "6:37", "paceSec": 397, "avgHr": 176, "maxHr": 192, "calories": 430}, {"date": "2026-01-25", "title": "Laufbandtraining", "distanceKm": 8.19, "time": "00:54:42", "pace": "6:41", "paceSec": 401, "avgHr": 169, "maxHr": 180, "calories": 576}, {"date": "2026-01-31", "title": "Sinsheim Laufen- Freundinnenlauf💕", "distanceKm": 6.04, "time": "00:40:14", "pace": "6:40", "paceSec": 400, "avgHr": 173, "maxHr": 191, "calories": 423}, {"date": "2026-04-11", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:35:51", "pace": "7:10", "paceSec": 430, "avgHr": 174, "maxHr": 192, "calories": 355}, {"date": "2026-04-19", "title": "Neckarsulm Laufen", "distanceKm": 6.22, "time": "00:44:03", "pace": "7:05", "paceSec": 425, "avgHr": 172, "maxHr": 191, "calories": 431}, {"date": "2026-04-25", "title": "Neckarsulm Laufen", "distanceKm": 5.05, "time": "00:33:15", "pace": "6:35", "paceSec": 395, "avgHr": 178, "maxHr": 192, "calories": 351}, {"date": "2026-05-01", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:32:18", "pace": "6:27", "paceSec": 387, "avgHr": 178, "maxHr": 192, "calories": 342}, {"date": "2026-05-05", "title": "Neckarsulm Laufen", "distanceKm": 5.06, "time": "00:32:50", "pace": "6:29", "paceSec": 389, "avgHr": 174, "maxHr": 185, "calories": 342}, {"date": "2026-05-19", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:33:29", "pace": "6:41", "paceSec": 401, "avgHr": 176, "maxHr": 190, "calories": 346}, {"date": "2026-06-15", "title": "Neckarsulm Laufen", "distanceKm": 6.01, "time": "00:40:14", "pace": "6:42", "paceSec": 402, "avgHr": 174, "maxHr": 189, "calories": 413}, {"date": "2026-06-29", "title": "Neckarsulm Laufen", "distanceKm": 6.12, "time": "00:41:49", "pace": "6:50", "paceSec": 410, "avgHr": 173, "maxHr": 185, "calories": 424}, {"date": "2026-08-04", "title": "Neckarsulm Laufen", "distanceKm": 5.01, "time": "00:31:46", "pace": "6:21", "paceSec": 381, "avgHr": 183, "maxHr": 194, "calories": 344}];
+
+/* =====================================================================
+   ICONS
+===================================================================== */
+const ICONS = {
+  home:'<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9.5 20v-6h5v6"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/>',
+  run:'<circle cx="15" cy="5" r="1.6"/><path d="M9 21l2.2-5 2.4 1.8L16 21M11 14l-2-3 3.4-3.4 2 2.2 3.1 1"/><path d="M6 17l3-2"/>',
+  dumbbell:'<path d="M4 9v6M20 9v6M2 12h2M20 12h2M7 7v10M17 7v10M7 12h10"/>',
+  yoga:'<circle cx="12" cy="5" r="1.8"/><path d="M12 7v6M12 13l-5 6M12 13l5 6M7 13c0-3 2-4 5-4s5 1 5 4"/>',
+  drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
+  chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  medal:'<circle cx="12" cy="15" r="6"/><path d="M9 9 6 3M15 9l3-6M9.5 13.5 12 12l2.5 1.5-1-3 2.5-2h-3L12 5.5 10 8.5H7l2.5 2z"/>',
+  gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V19a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.6V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.6 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.6 1z"/>',
+  trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 5H5a3 3 0 0 0 3 5M16 5h3a3 3 0 0 1-3 5"/><path d="M12 13v3M9 20h6M10 17h4v3h-4z"/>',
+  ask:'<path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8.5 10.3h7M8.5 13h4.5"/>',
+  scale:'<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="13" r="3.4"/><path d="M12 13 14.3 10.6M9 4v2M15 4v2"/>'
+};
+function iconSvg(name, size=19){
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="${size}" height="${size}">${ICONS[name]}</svg>`;
+}
+
+/* =====================================================================
+   NAVIGATION
+===================================================================== */
+const NAV = [
+  {id:'home', label:'Dashboard', icon:'home'},
+  {id:'plan', label:'Trainingsplan', icon:'calendar'},
+  {id:'run', label:'Laufen', icon:'run'},
+  {id:'strength', label:'Krafttraining', icon:'dumbbell'},
+  {id:'yoga', label:'Yoga & Dehnen', icon:'yoga'},
+  {id:'cycle', label:'Zyklus', icon:'drop'},
+  {id:'weight', label:'Gewicht', icon:'scale'},
+  {id:'stats', label:'Statistik', icon:'chart'},
+  {id:'badges', label:'Erfolge', icon:'trophy'},
+];
+const navlistEl = document.getElementById('navlist');
+NAV.forEach(item=>{
+  const btn = document.createElement('button');
+  btn.className = 'navbtn'; btn.dataset.id = item.id;
+  btn.innerHTML = iconSvg(item.icon) + `<span class="nlabel">${item.label}</span>`;
+  btn.addEventListener('click', ()=>switchView(item.id));
+  navlistEl.appendChild(btn);
+});
+function switchView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  if(id==='stats') setTimeout(renderCharts, 30);
+  if(id==='weight') setTimeout(renderWeightChart, 30);
+  closeMenu();
+  const mainEl = document.getElementById('main');
+  if(mainEl) mainEl.scrollTop = 0;
+}
+switchView('home');
+
+function openMenu(){
+  document.getElementById('menuPanel').classList.add('open');
+  document.getElementById('menuBackdrop').classList.add('open');
+}
+function closeMenu(){
+  document.getElementById('menuPanel').classList.remove('open');
+  document.getElementById('menuBackdrop').classList.remove('open');
+}
+document.getElementById('heartToggle').addEventListener('click', openMenu);
+document.getElementById('menuBackdrop').addEventListener('click', closeMenu);
+document.getElementById('menuClose').addEventListener('click', closeMenu);
+
+/* =====================================================================
+   STORAGE HELPERS
+   Läuft diese Seite außerhalb von claude.ai (z.B. auf GitHub Pages/eigenem
+   Server), nutzt sie localStorage — das bleibt zuverlässig auf dem Gerät
+   erhalten. Läuft sie innerhalb der Claude-Artefakte-Vorschau, wird
+   stattdessen window.storage genutzt (Account-gebunden).
+===================================================================== */
+const STORAGE_PREFIX = 'julias-training:';
+const memoryStore = {};
+const hasWindowStorage = (typeof window.storage !== 'undefined');
+async function storageGet(key){
+  if(hasWindowStorage){
+    try{
+      const r = await window.storage.get(key, false);
+      return r ? JSON.parse(r.value) : null;
+    }catch(e){ /* fällt durch auf localStorage/memory */ }
+  }
+  try{
+    const raw = localStorage.getItem(STORAGE_PREFIX+key);
+    return raw ? JSON.parse(raw) : null;
+  }catch(e){ return memoryStore[key] ?? null; }
+}
+async function storageSet(key, value){
+  memoryStore[key] = value;
+  if(hasWindowStorage){
+    try{ await window.storage.set(key, JSON.stringify(value), false); return; }catch(e){ /* fällt durch */ }
+  }
+  try{ localStorage.setItem(STORAGE_PREFIX+key, JSON.stringify(value)); }catch(e){ /* z.B. privater Modus */ }
+}
+
+/* =====================================================================
+   SETTINGS / STATE
+===================================================================== */
+const DEFAULT_SETTINGS = {
+  age: null,
+  restingHr: 60,
+  maxHr: 202,
+  maxHrIsEstimate: true,
+  cycleStart: '2026-08-14',
+  cycleLen: 23,
+  periodDur: 5,
+  anchor: '2026-08-30'
+};
+let SETTINGS = {...DEFAULT_SETTINGS};
+let MANUAL_RUNS = [];
+let STRENGTH_ENTRIES = [];
+let WEIGHT_ENTRIES = [];
+
+async function loadState(){
+  const s = await storageGet('settings');
+  if(s) SETTINGS = {...DEFAULT_SETTINGS, ...s};
+  const r = await storageGet('run-entries-manual');
+  if(r) MANUAL_RUNS = r;
+  const st = await storageGet('strength-entries');
+  if(st) STRENGTH_ENTRIES = st;
+  const w = await storageGet('weight-entries');
+  if(w) WEIGHT_ENTRIES = w;
+  const ev = await storageGet('exercise-variants');
+  if(ev) EXERCISE_VARIANTS = ev;
+}
+
+/* =====================================================================
+   DATE / CYCLE LOGIC
+===================================================================== */
+function toDateOnly(d){ const x=new Date(d); x.setHours(0,0,0,0); return x; }
+function addDays(d, n){ const x=new Date(d); x.setDate(x.getDate()+n); return x; }
+function dayDiff(a,b){ return Math.round((toDateOnly(a)-toDateOnly(b))/86400000); }
+function fmtDate(d){ return d.toLocaleDateString('de-DE', {day:'2-digit', month:'2-digit', year:'numeric'}); }
+function fmtISO(d){
+  const x = toDateOnly(d);
+  const y = x.getFullYear();
+  const m = String(x.getMonth()+1).padStart(2,'0');
+  const dd = String(x.getDate()).padStart(2,'0');
+  return `${y}-${m}-${dd}`;
+}
+function mod(n,m){ return ((n%m)+m)%m; }
+
+const CYCLE_PATTERN = [
+  {type:'work', label:'Spätdienst'},
+  {type:'work', label:'Früh-/Nachtdienst'},
+  {type:'train', slot:1, label:'Entspannter Tag'},
+  {type:'train', slot:2, label:'Moderater Tag'},
+  {type:'train', slot:3, label:'Intensivster Tag'},
+];
+
+function cycleInfoForDate(date){
+  const anchor = toDateOnly(SETTINGS.anchor);
+  const diff = dayDiff(date, anchor);
+  const idx = mod(diff, 5);
+  return {...CYCLE_PATTERN[idx], idx, blockNumber: Math.floor(diff/5)};
+}
+
+function periodInfoForDate(date){
+  const start = toDateOnly(SETTINGS.cycleStart);
+  const diff = dayDiff(date, start);
+  const phase = mod(diff, SETTINGS.cycleLen);
+  const onPeriod = phase < SETTINGS.periodDur;
+  const periodDayNum = onPeriod ? phase+1 : null;
+  const reduced = onPeriod && periodDayNum >= 3;
+  let nextPeriodStart = null;
+  if(!onPeriod){
+    const daysUntil = SETTINGS.cycleLen - phase;
+    nextPeriodStart = addDays(date, daysUntil);
+  }
+  return {onPeriod, periodDayNum, reduced, nextPeriodStart, cyclePhaseDay:phase};
+}
+
+const CYCLE_PHASES = [
+  {
+    id:'menstruation', name:'Menstruation',
+    juliaTips:[
+      'Sanfte Bewegung statt Leistungsdruck — Spazieren oder leichtes Yoga reicht völlig.',
+      'Wärme ist eines der wirksamsten Mittel gegen Krämpfe: Wärmflasche oder Körnerkissen auf den Unterbauch, 15–20 Min., bei Bedarf mehrmals täglich. Eine warme Dusche/Bad wirkt ähnlich.',
+      'Magnesiumreiche Lebensmittel (Nüsse, Kürbiskerne, Bananen, Vollkorn) können die Muskulatur entspannen und Krämpfe mildern.',
+      'Entzündungshemmende Lebensmittel wie Ingwer (z.B. als Tee) und Kurkuma können Regelschmerzen nachweislich reduzieren.',
+      'Weniger Salz, Zucker und Koffein an diesen Tagen — sie können Wassereinlagerungen und Krämpfe eher verstärken.',
+      'Auf ausreichend Eisen achten (z.B. Linsen, Fleisch, grünes Blattgemüse), da während der Periode mehr davon verloren geht.',
+      'Sanfte Stabilitätsübungen im Liegen (z.B. Beckenkreisen, Knie-zur-Brust) können die Durchblutung im Beckenbereich fördern und Krämpfe lindern, ohne zu belasten — siehe „Yoga & Dehnen".',
+      'Genug trinken und auf ausreichend Schlaf achten — beides beeinflusst, wie stark Symptome wahrgenommen werden.'
+    ],
+    johannesTips:['Frag aktiv, was sie gerade braucht, statt es anzunehmen — manchmal ist es Ruhe, manchmal Ablenkung.','Eine Wärmflasche oder ein warmer Tee ohne Aufforderung sind eine schöne Geste.','Trainingsausfälle jetzt nicht kommentieren oder hinterfragen — das ist völlig normal und geplant.','Geduld bei Erschöpfung oder schlechterer Laune — das ist körperlich bedingt, nicht persönlich gemeint.']
+  },
+  {
+    id:'follikel', name:'Follikelphase',
+    juliaTips:['Die Energie steigt spürbar — guter Zeitraum, um die Intensität wieder zu steigern.','Guter Zeitpunkt für neue Trainingsreize oder etwas längere Einheiten.','Stimmung und Motivation sind meist besser als in den Tagen zuvor.'],
+    johannesTips:['Sie hat jetzt oft mehr Antrieb — ein guter Moment, um gemeinsame Aktivitäten vorzuschlagen.','Unterstütze neue Vorhaben oder Trainingsziele, die sie jetzt angeht.']
+  },
+  {
+    id:'ovulation', name:'Eisprung',
+    juliaTips:['Energie- und Kraft-Hoch — oft der beste Zeitpunkt im Zyklus für intensive Einheiten oder Bestzeitversuche.','Auf gutes Aufwärmen achten, da manche in dieser Phase etwas verletzungsanfälliger sind.'],
+    johannesTips:['Ein guter Moment für eine gemeinsame anspruchsvollere Aktivität oder einen aktiven Ausflug.']
+  },
+  {
+    id:'luteal', name:'Lutealphase',
+    juliaTips:['PMS-Symptome (Reizbarkeit, Heißhunger, schlechterer Schlaf) sind in den letzten Tagen dieser Phase normal.','Training kann sich subjektiv schwerer anfühlen, obwohl objektiv gleich viel geleistet wird — das ist normal, nicht Einbildung.','Schlaf und Magnesium können jetzt besonders helfen.'],
+    johannesTips:['Stimmungsschwankungen in dieser Phase nicht persönlich nehmen — das ist hormonell bedingt.','Kleine Aufmerksamkeiten und etwas mehr Geduld werden jetzt besonders gut ankommen.','Wenn sie gereizter wirkt oder ein Training ausfallen lässt, keine Kommentare dazu — einfach Raum geben.']
+  },
+];
+function cyclePhaseForDate(date){
+  const p = periodInfoForDate(date);
+  const ovulationDay = Math.max(SETTINGS.periodDur+2, SETTINGS.cycleLen - 14);
+  let phase;
+  if(p.cyclePhaseDay < SETTINGS.periodDur) phase = CYCLE_PHASES[0];
+  else if(p.cyclePhaseDay < ovulationDay-1) phase = CYCLE_PHASES[1];
+  else if(p.cyclePhaseDay <= ovulationDay+1) phase = CYCLE_PHASES[2];
+  else phase = CYCLE_PHASES[3];
+  return phase;
+}
+
+/* =====================================================================
+   FORTSCHRITT / ZIEL-BERECHNUNG (progressive overload)
+===================================================================== */
+function recentRunStats(){
+  const runs = allRuns().filter(r=>r.distanceKm && r.paceSec).sort((a,b)=> a.date<b.date?1:-1);
+  const recent = runs.slice(0, 8);
+  if(!recent.length) return null;
+  const avgDist = recent.reduce((s,r)=>s+r.distanceKm,0)/recent.length;
+  const avgPaceSec = recent.reduce((s,r)=>s+r.paceSec,0)/recent.length;
+  const maxDist = Math.max(...recent.map(r=>r.distanceKm));
+  return {avgDist, avgPaceSec, maxDist};
+}
+function computeRunTarget(kind){
+  const stats = recentRunStats();
+  const fallbackPaceSec = 400;
+  if(kind==='easy'){
+    const baseDist = stats ? stats.avgDist : 5;
+    const distanceKm = Math.round(Math.min(baseDist*1.04, baseDist+1.5)*10)/10;
+    const paceSec = Math.round((stats ? stats.avgPaceSec : fallbackPaceSec) * 1.08);
+    const durationMin = Math.round(distanceKm*paceSec/60);
+    return {distanceKm, durationMin, paceSec, zoneLabel:'Zone 2'};
+  } else {
+    const baseDist = stats ? Math.max(stats.maxDist, stats.avgDist*1.3) : 7;
+    const distanceKm = Math.round(Math.min(baseDist*1.05, baseDist+1.5)*10)/10;
+    const paceSec = Math.round((stats ? stats.avgPaceSec : fallbackPaceSec) * 1.02);
+    const durationMin = Math.round(distanceKm*paceSec/60);
+    return {distanceKm, durationMin, paceSec, zoneLabel:'Zone 2–3'};
+  }
+}
+function isDayCompleted(date, kind){
+  const iso = fmtISO(date);
+  if(kind==='run') return allRuns().some(r=>r.date===iso);
+  if(kind==='strength') return STRENGTH_ENTRIES.some(e=>e.date===iso);
+  return false;
+}
+
+const WARMUP_RUN = [
+  '5 Min. lockeres Einlaufen oder zügiges Gehen',
+  'Beinschwingen vor/zurück, 10× pro Bein',
+  'Beinschwingen seitlich, 10× pro Bein',
+  'Ausfallschritte mit Oberkörperrotation, 8× pro Seite',
+  '2–3 lockere Steigerungsläufe (20–30 m antraben, Tempo langsam steigern)',
+];
+
+const PERIOD_RELIEF_STRETCHES = [
+  {name:'Kindhaltung', reason:'entlastet den unteren Rücken und wirkt durch die tiefe Atmung beruhigend auf den Bauchraum', seconds:60},
+  {name:'Taubenhaltung (sanft)', reason:'öffnet die Hüfte und kann Krämpfe im Beckenbereich spürbar lindern', seconds:45, perSide:true},
+  {name:'Knie-zur-Brust (liegend, beide Beine)', reason:'entspannt die Bauchdecke und kann Blähungen/Krämpfen entgegenwirken', seconds:45},
+  {name:'Katze-Kuh, sehr langsam', reason:'mobilisiert sanft die Wirbelsäule und lockert Verspannungen im unteren Rücken', seconds:45},
+  {name:'Beine hoch die Wand', reason:'fördert den venösen Rückfluss und wirkt stark entspannend auf das gesamte Nervensystem', seconds:300},
+];
+
+function sessionForDay(date){
+  const c = cycleInfoForDate(date);
+  const p = periodInfoForDate(date);
+  if(c.type==='work'){
+    return {status:'work', label:c.label, title: c.label, desc:'Kein Training — Arbeitstag.', summary:'Kein Training', onPeriod:p.onPeriod};
+  }
+  let title, desc, summary, zoneHint, kind, target=null, effekt, timeEstimate, warmup=null, secondary=null, periodRelief=null;
+
+  if(c.slot===1){
+    kind = 'run';
+    if(p.reduced){
+      title='Sanfte Bewegung + Yoga';
+      summary='Spaziergang + sanftes Yoga';
+      desc='Kurzer Spaziergang (10–15 Min. lockeres Gehen), danach eine sanfte Yoga-Einheit speziell gegen Regelbeschwerden. Ganz nach Gefühl — keine Vorgabe, jederzeit abbrechen wenn es sich nicht gut anfühlt.';
+      effekt='Fördert Durchblutung und Wohlbefinden, ganz ohne Leistungsdruck.';
+      timeEstimate='20–30 Min.';
+      periodRelief = PERIOD_RELIEF_STRETCHES;
+    } else {
+      target = computeRunTarget('easy');
+      title='Lockerer GA1-Lauf + Dehnen';
+      summary=`${target.distanceKm} km locker, ${target.zoneLabel} + Dehnen`;
+      desc = `${target.distanceKm} km locker durchlaufen, ca. ${target.durationMin} Min., Puls durchgehend in ${target.zoneLabel} halten (~${fmtPace(target.paceSec)} min/km, langsamer ist besser als zu schnell). Kein Tempowechsel, gleichmäßiges Tempo von Anfang bis Ende.`;
+      zoneHint = target.zoneLabel;
+      effekt = 'Verbessert Grundlagenausdauer, Fettstoffwechsel und die aerobe Basis.';
+      timeEstimate = target.durationMin+' Min. Lauf + 5–10 Min. Dehnen';
+      warmup = WARMUP_RUN;
+      secondary = {type:'stretch', title:'Dehnen', timing:'danach', reason:'Lockert die beanspruchte Muskulatur und unterstützt die Regeneration.'};
+    }
+  } else if(c.slot===2){
+    kind = 'strength';
+    if(p.reduced){
+      title='Leichtes Yoga statt Kraft';
+      summary='Sanftes Yoga (kein Krafttraining)';
+      desc='Kein Krafttraining heute. Stattdessen eine sanfte Yoga-/Mobility-Einheit speziell gegen Regelbeschwerden — auf den Körper hören, jede Übung darf auch weggelassen werden.';
+      effekt='Löst Verspannungen, unterstützt Beweglichkeit und Entspannung.';
+      timeEstimate='20–25 Min.';
+      periodRelief = PERIOD_RELIEF_STRETCHES;
+    } else {
+      title='Krafttraining (GK-Plan) + Dehnen';
+      summary='GK-Plan oder Hyrox + Dehnen';
+      desc='Ganzkörper-Einheit im Studio nach GK-Plan — oder alternativ ein Hyrox-Workout zur Abwechslung. Läuferrelevante Muskulatur, Rumpf-/Rückenfokus.';
+      effekt='Baut Kraft in laufrelevanten Muskelgruppen auf, stabilisiert Rumpf & Haltung.';
+      timeEstimate = '~50 Min. Kraft (Hyrox-Alternative ~40 Min.) + 5–10 Min. Dehnen';
+      secondary = {type:'stretch', title:'Dehnen', timing:'danach', reason:'Fördert die Regeneration nach dem Krafttraining und hält die Muskulatur geschmeidig.'};
+    }
+  } else {
+    kind = 'run';
+    if(p.reduced){
+      title='Kurzer, ruhiger Lauf — oder Yoga';
+      summary='Optional kurzer Lauf oder Yoga';
+      desc='Nur falls es sich wirklich gut anfühlt: 15–20 Min. sehr locker laufen. Ansonsten Ruhetag oder die Yoga-Einheit gegen Regelbeschwerden weiter unten. Kein Leistungsdruck an diesem Tag.';
+      effekt='Sanfte Bewegung nach Bedarf, kein Leistungsdruck.';
+      timeEstimate='0–20 Min.';
+      periodRelief = PERIOD_RELIEF_STRETCHES;
+    } else {
+      target = computeRunTarget('long');
+      const easyPaceSec = target.paceSec;
+      const tempoPaceSec = Math.round(target.paceSec*0.90);
+      const mainMin = Math.max(target.durationMin - 20, 12);
+      const reps = Math.max(3, Math.min(6, Math.round(mainMin/6)));
+      title='Anspruchsvollster Lauf + Dehnen';
+      summary=`${target.distanceKm} km mit Tempo-Intervallen + Dehnen`;
+      desc = `Warm-up: 1,5 km locker einlaufen (Pace ~${fmtPace(easyPaceSec)} min/km). Hauptteil: ${reps} × 4 Min. im zügigen Tempo (Pace ~${fmtPace(tempoPaceSec)} min/km), dazwischen je 2 Min. locker traben (Pace ~${fmtPace(easyPaceSec)} min/km) zur Erholung. Cool-down: 1,5 km locker auslaufen. Gesamt ca. ${target.distanceKm} km / ${target.durationMin} Min.`;
+      zoneHint = target.zoneLabel;
+      effekt = 'Steigert Ausdauerkapazität, Laufökonomie und mentale Stärke.';
+      timeEstimate = target.durationMin+' Min. Lauf + 5–10 Min. Dehnen';
+      warmup = WARMUP_RUN;
+      secondary = {type:'stretch', title:'Dehnen', timing:'danach', reason:'Lockert die beanspruchte Muskulatur nach der intensiven Einheit und unterstützt die Regeneration.'};
+    }
+  }
+  const completed = isDayCompleted(date, kind);
+  return {status:'train', label:c.label, title, desc, summary, zoneHint, reduced:p.reduced, onPeriod:p.onPeriod, kind, target, effekt, timeEstimate, completed, warmup, secondary, periodRelief};
+}
+
+/* =====================================================================
+   HR ZONES
+===================================================================== */
+const ZONE_DEFS = [
+  {name:'Zone 1 · Regeneration', from:0.50, to:0.60, color:'var(--zone1)'},
+  {name:'Zone 2 · GA1 / locker', from:0.60, to:0.70, color:'var(--zone2)'},
+  {name:'Zone 3 · GA2 / Grundlage', from:0.70, to:0.80, color:'var(--zone3)'},
+  {name:'Zone 4 · Schwelle', from:0.80, to:0.90, color:'var(--zone4)'},
+  {name:'Zone 5 · Maximal', from:0.90, to:1.00, color:'var(--zone5)'},
+];
+function computeZones(){
+  return ZONE_DEFS.map(z=>({
+    ...z,
+    lo: Math.round(SETTINGS.maxHr*z.from),
+    hi: Math.round(SETTINGS.maxHr*z.to),
+  }));
+}
+function zoneForHr(hr){
+  if(hr==null) return null;
+  const zones = computeZones();
+  for(let i=0;i<zones.length;i++){
+    if(hr>=zones[i].lo && hr<=zones[i].hi) return {idx:i, ...zones[i]};
+  }
+  if(hr>zones[zones.length-1].hi) return {idx:4, ...zones[4]};
+  return {idx:0, ...zones[0]};
+}
+
+/* =====================================================================
+   RUN DATA HELPERS
+===================================================================== */
+function allRuns(){
+  const manualTagged = MANUAL_RUNS.map((r,i)=>({...r, source:'manual', _manualIdx:i}));
+  return [...SEED_RUNS, ...manualTagged].sort((a,b)=> a.date < b.date ? 1 : -1);
+}
+async function deleteRunEntry(manualIdx){
+  if(!confirm('Diesen Lauf wirklich löschen?')) return;
+  MANUAL_RUNS.splice(manualIdx,1);
+  await storageSet('run-entries-manual', MANUAL_RUNS);
+  renderAll();
+}
+function paceSecFromDistTime(distKm, timeStr){
+  const parts = timeStr.split(':').map(Number);
+  let sec;
+  if(parts.length===3) sec = parts[0]*3600+parts[1]*60+parts[2];
+  else if(parts.length===2) sec = parts[0]*60+parts[1];
+  else return null;
+  if(!distKm) return null;
+  return Math.round(sec/distKm);
+}
+function fmtPace(sec){
+  if(sec==null) return '–';
+  const m = Math.floor(sec/60), s = Math.round(sec%60);
+  return `${m}:${String(s).padStart(2,'0')}`;
+}
+function bestInBucket(runs, lo, hi){
+  const cand = runs.filter(r=>r.distanceKm>=lo && r.distanceKm<=hi && r.paceSec);
+  if(!cand.length) return null;
+  return cand.reduce((a,b)=> (a.paceSec/a.distanceKm*lo) , null) , cand.sort((a,b)=>{
+    // compare total time estimate: paceSec*distanceKm approximates total sec
+    return (a.paceSec*a.distanceKm) - (b.paceSec*b.distanceKm);
+  })[0];
+}
+
+/* =====================================================================
+   RENDER: HOME
+===================================================================== */
+function checkmarkHtml(completed){
+  return `<span class="daycheck ${completed?'done':''}" title="${completed?'Erledigt':'Noch offen'}">✓</span>`;
+}
+function renderHomeWeek(){
+  const strip = document.getElementById('homeWeekStrip');
+  strip.innerHTML='';
+  const today = toDateOnly(new Date());
+  const c = cycleInfoForDate(today);
+  const blockStart = addDays(today, -c.idx);
+  for(let i=0;i<5;i++){
+    const d = addDays(blockStart, i);
+    const sess = sessionForDay(d);
+    const isToday = dayDiff(d, today)===0;
+    const div = document.createElement('div');
+    div.className = 'daycell ' + (sess.status==='work' ? 'work' : 'train') + (isToday?' today':'') + (sess.onPeriod?' period':'');
+    const dateStr = d.toLocaleDateString('de-DE',{weekday:'short', day:'2-digit', month:'2-digit'});
+    div.innerHTML = `
+      ${sess.onPeriod ? `<div class="dflag">${sess.reduced?'Periode':'Periode'}</div>` : ''}
+      <div class="dlabel">${sess.status==='work' ? 'Arbeit' : 'Training'}</div>
+      <div class="ddate">${dateStr}</div>
+      <div class="dtitle">${sess.status==='train'?checkmarkHtml(sess.completed):''} <span>${sess.title}</span></div>
+      <div class="ddesc">${sess.summary||sess.desc}</div>`;
+    if(sess.status==='train'){
+      div.style.cursor='pointer';
+      div.dataset.iso = fmtISO(d);
+    }
+    strip.appendChild(div);
+  }
+}
+document.getElementById('homeWeekStrip').addEventListener('click', (ev)=>{
+  const cell = ev.target.closest('.daycell[data-iso]');
+  if(cell) openDayModal(cell.dataset.iso);
+});
+
+function openDayModal(iso){
+  const d = toDateOnly(iso);
+  const sess = sessionForDay(d);
+  if(sess.status!=='train') return;
+  const modal = document.getElementById('dayModal');
+  const backdrop = document.getElementById('dayModalBackdrop');
+  document.getElementById('dayModalTitle').textContent = `${sess.title} — ${fmtDate(d)}`;
+  let rows = '';
+
+  if(sess.warmup){
+    rows += `<div class="infobox" style="margin-bottom:10px;"><strong>Warm-up (vorher):</strong><ul style="margin:6px 0 0 0; padding-left:18px;">${sess.warmup.map(w=>`<li>${w}</li>`).join('')}</ul></div>`;
+  }
+
+  if(sess.target){
+    rows += `
+      <div class="stattile" style="margin-bottom:8px;"><div class="slabel">Zieldistanz</div><div class="sval">${sess.target.distanceKm} km</div></div>
+      <div class="stattile" style="margin-bottom:8px;"><div class="slabel">Ziel-Pace</div><div class="sval">${fmtPace(sess.target.paceSec)} /km</div></div>
+      <div class="stattile" style="margin-bottom:8px;"><div class="slabel">Pulszone</div><div class="sval">${sess.target.zoneLabel}</div></div>
+    `;
+  }
+  rows += `<div class="infobox" style="margin-top:6px;"><strong>Ablauf:</strong> ${sess.desc}</div>`;
+  rows += `<div class="infobox" style="margin-top:8px;"><strong>Geschätzte Zeit:</strong> ${sess.timeEstimate||'–'}<br><strong>Trainingseffekt:</strong> ${sess.effekt||'–'}</div>`;
+
+  if(sess.secondary){
+    rows += `<div class="infobox" style="margin-top:8px;"><strong>${sess.secondary.title} (${sess.secondary.timing}):</strong> ${sess.secondary.reason} Siehe Bereich „Yoga &amp; Dehnen" für passende Übungen mit Zeitangabe.</div>`;
+  }
+
+  if(sess.periodRelief){
+    rows += `<div class="infobox" style="margin-top:8px; border-left-color:#B23A2E;"><strong>Empfohlen an diesem Periodentag:</strong><ul style="margin:6px 0 0 0; padding-left:18px;">${sess.periodRelief.map(s=>`<li><strong>${s.name}</strong> (${s.seconds>=60?Math.round(s.seconds/60)+' Min.':s.seconds+' Sek.'}${s.perSide?', je Seite':''}) — ${s.reason}</li>`).join('')}</ul></div>`;
+  }
+
+  if(sess.completed){
+    const iso2 = fmtISO(d);
+    if(sess.kind==='run'){
+      const match = allRuns().find(r=>r.date===iso2);
+      if(match){
+        rows += `<div class="infobox" style="margin-top:10px; border-left-color:#3E9B5C;"><strong>✓ Erledigt:</strong> ${match.distanceKm} km in ${match.time} (${match.pace||fmtPace(match.paceSec)} /km)${match.avgHr?', Ø Puls '+match.avgHr:''}</div>`;
+      }
+    } else if(sess.kind==='strength'){
+      const match = STRENGTH_ENTRIES.find(e=>e.date===iso2);
+      if(match){
+        rows += `<div class="infobox" style="margin-top:10px; border-left-color:#3E9B5C;"><strong>✓ Erledigt:</strong> ${match.mode==='hyrox'?'Hyrox-Workout':'Krafttraining'} absolviert, Gefühl ${match.feeling||'–'}/5</div>`;
+      }
+    }
+  } else {
+    rows += `<div class="infobox" style="margin-top:10px;">Noch nicht eingetragen. Trag die Einheit im Bereich „${sess.kind==='run'?'Laufen':'Krafttraining'}“ ein, sobald du sie absolviert hast.</div>`;
+  }
+  document.getElementById('dayModalBody').innerHTML = rows;
+  modal.style.display='block';
+  backdrop.style.display='block';
+}
+function closeDayModal(){
+  document.getElementById('dayModal').style.display='none';
+  document.getElementById('dayModalBackdrop').style.display='none';
+}
+
+function renderHomeStats(){
+  const runs = allRuns();
+  const today = toDateOnly(new Date());
+  const last = runs[0];
+  const daysSince = last ? dayDiff(today, last.date) : null;
+  const totalKm = runs.reduce((s,r)=>s+(r.distanceKm||0),0);
+  const pInfo = periodInfoForDate(today);
+
+  const row = document.getElementById('homeStatRow');
+  row.innerHTML = `
+    <div class="stattile"><div class="slabel">Letzter Lauf</div><div class="sval">${last?fmtDate(new Date(last.date)):'–'}</div><div class="ssub">${last? (daysSince===0?'heute':'vor '+daysSince+' Tagen') + ' · ' + last.distanceKm+' km':''}</div></div>
+    <div class="stattile"><div class="slabel">Läufe gesamt</div><div class="sval">${runs.length}</div><div class="ssub">${totalKm.toFixed(0)} km insgesamt</div></div>
+    <div class="stattile"><div class="slabel">Trainingstag</div><div class="sval">${cycleInfoForDate(today).idx+1} / 5</div><div class="ssub">${cycleInfoForDate(today).label}</div></div>
+    <div class="stattile"><div class="slabel">Zyklus-Status</div><div class="sval">${pInfo.onPeriod? 'Periode Tag '+pInfo.periodDayNum : 'Keine Periode'}</div><div class="ssub">${pInfo.onPeriod ? (pInfo.reduced?'Intensität reduziert':'Normale Intensität ok') : 'Nächste ca. '+fmtDate(pInfo.nextPeriodStart)}</div></div>
+  `;
+  document.getElementById('cycleDayBadge').textContent = `Trainingstag ${cycleInfoForDate(today).idx+1}/5 · ${cycleInfoForDate(today).label}`;
+}
+
+function findPBs(runs){
+  const b5 = bestByTime(runs, 4.85, 5.3);
+  const b10 = bestByTime(runs, 9.5, 10.5);
+  const bhm = bestByTime(runs, 20, 22.5);
+  return {b5, b10, bhm};
+}
+function bestByTime(runs, lo, hi){
+  const cand = runs.filter(r=>r.distanceKm>=lo && r.distanceKm<=hi && r.time);
+  if(!cand.length) return null;
+  const withSec = cand.map(r=>({...r, totalSec: timeToSec(r.time)}));
+  return withSec.sort((a,b)=>a.totalSec-b.totalSec)[0];
+}
+function timeToSec(t){
+  const p = t.split(':').map(Number);
+  if(p.length===3) return p[0]*3600+p[1]*60+p[2];
+  if(p.length===2) return p[0]*60+p[1];
+  return null;
+}
+
+function renderHomePBs(){
+  const runs = allRuns();
+  const {b5,b10,bhm} = findPBs(runs);
+  const row = document.getElementById('homePBRow');
+  row.innerHTML = `
+    <div class="stattile"><div class="slabel">5 km Bestzeit</div><div class="sval">${b5?b5.time:'–'}</div><div class="ssub">${b5?fmtDate(new Date(b5.date)):''}</div></div>
+    <div class="stattile"><div class="slabel">10 km Bestzeit</div><div class="sval">${b10?b10.time:'–'}</div><div class="ssub">${b10?fmtDate(new Date(b10.date)):''}</div></div>
+    <div class="stattile"><div class="slabel">Halbmarathon</div><div class="sval">${bhm?bhm.time:'–'}</div><div class="ssub">${bhm? (bhm.title+' · '+fmtDate(new Date(bhm.date))):''}</div></div>
+  `;
+}
+
+/* =====================================================================
+   BADGES
+===================================================================== */
+function computeBadges(){
+  const runs = allRuns();
+  const totalKm = runs.reduce((s,r)=>s+(r.distanceKm||0),0);
+  const {b5} = findPBs(runs);
+  const hasHM = runs.some(r=>r.distanceKm>=20);
+  const list = [
+    {icon:'trophy', title:'Halbmarathon-Finisherin', desc:'21,1 km erfolgreich gefinisht', unlocked: hasHM},
+    {icon:'medal', title:'400-km-Club', desc:'400 km seit Trackingbeginn', unlocked: totalKm>=400},
+    {icon:'medal', title:'200-km-Club', desc:'200 km seit Trackingbeginn', unlocked: totalKm>=200},
+    {icon:'run', title:'Persönliche Bestzeit 5 km', desc: b5? b5.time+' — weiter so!' : 'Noch nicht erreicht', unlocked: !!b5},
+    {icon:'dumbbell', title:'Erste Krafteinheit erfasst', desc:'Trag deine erste Einheit ein', unlocked: STRENGTH_ENTRIES.length>=1},
+    {icon:'run', title:'Erster Lauf im neuen Dashboard', desc:'Dein erster eigener Eintrag', unlocked: MANUAL_RUNS.length>=1},
+    {icon:'calendar', title:'Drei Blöcke in Folge aktiv', desc:'Konstanz über 3 Trainingsblöcke', unlocked: MANUAL_RUNS.length>=3},
+    {icon:'scale', title:'Erster Gewichtseintrag', desc:'Dein Gewicht im Blick behalten', unlocked: WEIGHT_ENTRIES.length>=1},
+    {icon:'chart', title:'Neue Bestzeit erzielt', desc:'Eine deiner Bestzeiten verbessert', unlocked: false},
+  ];
+  return list;
+}
+function renderBadgesInto(elId, compact){
+  const el = document.getElementById(elId);
+  const badges = computeBadges();
+  el.innerHTML = badges.map(b=>`
+    <div class="badge ${b.unlocked?'':'locked'}">
+      <div class="bicon">${iconSvg(b.icon,16)}</div>
+      <div><div class="btitle">${b.title}</div><div class="bdesc">${b.desc}</div></div>
+    </div>`).join('');
+}
+
+/* =====================================================================
+   RENDER: PLAN VIEW
+===================================================================== */
+let planOffsetBlocks = 0;
+function renderPlan(){
+  const today = toDateOnly(new Date());
+  const c = cycleInfoForDate(today);
+  const container = document.getElementById('planBlocks');
+  container.innerHTML = '';
+  const currentBlockStart = addDays(today, -c.idx);
+  for(let b=0;b<2;b++){
+    const blockStart = addDays(currentBlockStart, (planOffsetBlocks+b)*5);
+    const wrap = document.createElement('div');
+    wrap.className='card';
+    wrap.style.background = 'var(--surface-alt)';
+    const heading = document.createElement('h3');
+    heading.textContent = `Block ab ${fmtDate(blockStart)}`;
+    wrap.appendChild(heading);
+    const list = document.createElement('div');
+    list.style.display = 'flex';
+    list.style.flexDirection = 'column';
+    list.style.gap = '10px';
+
+    for(let i=0;i<5;i++){
+      const d = addDays(blockStart, i);
+      const sess = sessionForDay(d);
+      const isToday = dayDiff(d, today)===0;
+      const row = document.createElement('div');
+      row.className = 'daycell ' + (sess.status==='work' ? 'work' : 'train') + (isToday?' today':'') + (sess.onPeriod?' period':'');
+      row.style.gridTemplateColumns = 'auto 1fr';
+      const weekdayStr = d.toLocaleDateString('de-DE',{weekday:'long', day:'2-digit', month:'2-digit'});
+      row.innerHTML = `
+        ${sess.onPeriod ? '<div class="dflag">Periode</div>' : ''}
+        <div class="dlabel">${sess.status==='work' ? 'Arbeit' : 'Training'}</div>
+        <div class="ddate">${weekdayStr}</div>
+        <div class="dtitle">${sess.status==='train'?checkmarkHtml(sess.completed):''} <span>${sess.title}</span></div>
+        <div class="ddesc">${sess.summary||sess.desc}${sess.timeEstimate?` · ${sess.timeEstimate}`:''}</div>
+      `;
+      if(sess.status==='train'){
+        row.style.cursor='pointer';
+        row.dataset.iso = fmtISO(d);
+      }
+      list.appendChild(row);
+    }
+    wrap.appendChild(list);
+    container.appendChild(wrap);
+  }
+}
+document.getElementById('planBlocks').addEventListener('click', (ev)=>{
+  const cell = ev.target.closest('.daycell[data-iso]');
+  if(cell) openDayModal(cell.dataset.iso);
+});
+document.getElementById('planPrev').addEventListener('click', ()=>{ planOffsetBlocks -= 2; renderPlan(); });
+document.getElementById('planNext').addEventListener('click', ()=>{ planOffsetBlocks += 2; renderPlan(); });
+
+/* =====================================================================
+   RENDER: LAUFEN VIEW
+===================================================================== */
+function renderZones(){
+  const zones = computeZones();
+  const list = document.getElementById('zoneList');
+  list.innerHTML = zones.map(z=>`
+    <div class="zonerow">
+      <span class="zoneswatch" style="background:${z.color}"></span>
+      <span class="zonename">${z.name}</span>
+      <span class="zonerange">${z.lo}–${z.hi} bpm</span>
+    </div>`).join('');
+  const note = document.getElementById('hrInsight');
+  note.innerHTML = `Maximalpuls: <strong>${SETTINGS.maxHr} bpm</strong>${SETTINGS.maxHrIsEstimate? ' (aus deinem bisher höchsten gemessenen Wert, Halbmarathon Würzburg 25.05.2025)':''}. Deine Ø-Herzfrequenz liegt bei vielen bisherigen Läufen bei 170–180 bpm — das entspricht eher Zone 3–4 statt echtem GA1. Für lockere Läufe bewusst langsamer laufen, auch wenn es sich zunächst ungewohnt anfühlt: das trainiert die Grundlagenausdauer am effektivsten.`;
+}
+
+function renderRunTable(){
+  const runs = allRuns();
+  document.getElementById('runCount').textContent = runs.length;
+  const body = document.getElementById('runTableBody');
+  body.innerHTML = runs.map(r=>{
+    const z = zoneForHr(r.avgHr);
+    return `<tr>
+      <td>${new Date(r.date).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'2-digit'})}</td>
+      <td class="txt">${r.title||''}</td>
+      <td class="num">${r.distanceKm??''}</td>
+      <td class="num">${r.time||''}</td>
+      <td class="num">${r.pace||fmtPace(r.paceSec)}</td>
+      <td class="num">${r.avgHr??'–'}</td>
+      <td>${z?`<span class="tag" style="background:${z.color}; color:#fff;">Z${z.idx+1}</span>`:'–'}</td>
+      <td>${r._manualIdx!==undefined ? `<button class="btn secondary" style="min-height:28px; padding:4px 8px; font-size:10.5px;" onclick="deleteRunEntry(${r._manualIdx})">Löschen</button>` : ''}</td>
+    </tr>`;
+  }).join('');
+}
+
+let selectedRunFeel = null;
+document.querySelectorAll('#runFeel button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('#runFeel button').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); selectedRunFeel = b.dataset.v;
+  });
+});
+document.getElementById('runSave').addEventListener('click', async ()=>{
+  const date = document.getElementById('runDate').value;
+  const dist = parseFloat(document.getElementById('runDist').value);
+  const time = document.getElementById('runTime').value.trim();
+  const hr = parseInt(document.getElementById('runHr').value);
+  const note = document.getElementById('runNote').value.trim();
+  const msg = document.getElementById('runSaveMsg');
+  if(!date || !dist || !time){ msg.textContent='Bitte Datum, Distanz und Zeit ausfüllen.'; return; }
+  const paceSec = paceSecFromDistTime(dist, time);
+  const entry = {date, title:'Eigener Eintrag', distanceKm:dist, time, pace:fmtPace(paceSec), paceSec, avgHr: isNaN(hr)?null:hr, maxHr:null, feeling:selectedRunFeel, note, source:'manual'};
+  MANUAL_RUNS.push(entry);
+  await storageSet('run-entries-manual', MANUAL_RUNS);
+  msg.textContent = 'Gespeichert ✓';
+  showSaveToast(selectedRunFeel);
+  document.getElementById('runDist').value=''; document.getElementById('runTime').value=''; document.getElementById('runHr').value=''; document.getElementById('runNote').value='';
+  renderAll();
+  setTimeout(()=>msg.textContent='',2500);
+});
+
+/* =====================================================================
+   RENDER: KRAFT VIEW
+===================================================================== */
+const GK_PLAN = [
+  {name:'Kniebeuge-Variante', type:'reps', target:'3 × 10–12', muscle:'Beine & Gesäß', variants:['Kniebeugen (Langhantel/Multipresse)','Beinpresse','Hip Thrust']},
+  {name:'Rumänisches Kreuzheben (Kurzhanteln)', type:'reps', target:'3 × 10', muscle:'Hintere Kette / unterer Rücken', tag:'Läuferrelevant'},
+  {name:'Ausfallschritte gehend (Kurzhanteln)', type:'reps', target:'3 × 10/Seite', muscle:'Beine unilateral', tag:'Läuferrelevant'},
+  {name:'Wadenheben, stehend', type:'reps', target:'3 × 15', muscle:'Waden', tag:'Läuferrelevant'},
+  {name:'Rücken-Zugvariante', type:'reps', target:'3 × 10', muscle:'Rücken / Lat', note:'Unterarm schonen', variants:['Rudern sitzend, breiter Griff (bei Bedarf Straps)','Latzug breit (bei Bedarf Straps)']},
+  {name:'Brust-Variante', type:'reps', target:'3 × 10', muscle:'Brust', variants:['Brustpresse (Maschine)','Butterfly / Fly-Maschine']},
+  {name:'Schulterdrücken, leicht', type:'reps', target:'2 × 12', muscle:'Schultern'},
+  {name:'Plank', type:'time', target:'3 × 30–45 Sek.', targetSeconds:40, muscle:'Rumpf', tag:'Skoliose-Fokus'},
+  {name:'Side Plank links/rechts', type:'time', target:'3 × 20–30 Sek./Seite', targetSeconds:25, muscle:'Rumpf seitlich', tag:'Skoliose-Fokus'},
+  {name:'Rückenextension / Superman', type:'time', target:'3 × 20 Sek.', targetSeconds:20, muscle:'Unterer Rücken', tag:'Skoliose-Fokus'},
+];
+let EXERCISE_VARIANTS = {};
+function displayNameFor(e){ return e.variants ? (EXERCISE_VARIANTS[e.name] || e.variants[0]) : e.name; }
+async function setExerciseVariant(baseName, value){
+  EXERCISE_VARIANTS[baseName] = value;
+  await storageSet('exercise-variants', EXERCISE_VARIANTS);
+  renderStrengthPlanList();
+  renderStrengthForm();
+}
+
+const HYROX_PLAN = {
+  timeEstimate: '~40 Min.',
+  intro: 'Alternative zum GK-Plan für Abwechslung — Kraft-Ausdauer-Hybrid nach Hyrox-Vorbild. Als Cardio-Teil ausschließlich Rudergerät oder Laufband (kein SkiErg).',
+  stations: [
+    {name:'Rudern ODER Laufband', detail:'500 m Rudern zügig — oder ersatzweise 3 Min. Laufband zügig', seconds:180, kind:'cardio'},
+    {name:'Ausfallschritte mit Kurzhanteln', detail:'20 Schritte gesamt, moderates Gewicht', seconds:120, kind:'functional'},
+    {name:'Rudern ODER Laufband', detail:'500 m Rudern zügig — oder 3 Min. Laufband zügig', seconds:180, kind:'cardio'},
+    {name:'Kurzhantel-Thrusters', detail:'15 Wiederholungen, leichtes bis moderates Gewicht', seconds:120, kind:'functional'},
+    {name:'Rudern ODER Laufband', detail:'500 m Rudern zügig — oder 3 Min. Laufband zügig', seconds:180, kind:'cardio'},
+    {name:'Farmers Carry', detail:'2×20 m tragen — bei Handproblemen Gewicht reduzieren oder Straps nutzen', seconds:90, kind:'functional'},
+    {name:'Rudern ODER Laufband', detail:'500 m Rudern zügig — oder 3 Min. Laufband zügig', seconds:180, kind:'cardio'},
+    {name:'Step-Back Burpees', detail:'12 Wiederholungen, gelenkschonende Variante', seconds:120, kind:'functional'},
+  ]
+};
+
+let strengthMode = 'kraft'; // 'kraft' | 'hyrox'
+
+function renderStrengthPlanList(){
+  const el = document.getElementById('strengthPlanList');
+  if(strengthMode==='kraft'){
+    el.innerHTML = `<div class="infobox" style="margin-bottom:10px;">Ganzheitlicher Ganzkörperplan (~50 Min.) — deckt alle großen Muskelgruppen ab, mit Fokus auf laufrelevante Muskulatur sowie Rumpf/Rücken (Skoliose &amp; Haltung). Bei manchen Übungen kannst du unten die Variante wechseln.</div>` +
+      GK_PLAN.map(e=>{
+        const displayName = displayNameFor(e);
+        const selectHtml = e.variants ? `<select onchange="setExerciseVariant('${e.name}', this.value)" style="margin-top:6px; font-size:11.5px; padding:6px 8px; min-height:34px; width:auto;">${e.variants.map(v=>`<option value="${v}" ${v===displayName?'selected':''}>${v}</option>`).join('')}</select>` : '';
+        return `
+      <div class="exrow">
+        <div class="exname">${displayName}<br><span style="font-weight:400; color:var(--text-muted); font-size:11px;">${e.muscle}</span>${selectHtml}</div>
+        <div class="num">${e.target}</div>
+        <div>${e.note?`<span class="pill">${e.note}</span>`:''}${e.tag?`<span class="pill" style="background:var(--gold-soft); color:var(--gold);">${e.tag}</span>`:''}</div>
+      </div>`;}).join('');
+  } else {
+    el.innerHTML = `<div class="infobox" style="margin-bottom:10px;">${HYROX_PLAN.intro} Geschätzte Dauer: ${HYROX_PLAN.timeEstimate}.</div>` +
+      HYROX_PLAN.stations.map((s,i)=>`
+      <div class="exrow">
+        <div class="exname">${i+1}. ${s.name}<br><span style="font-weight:400; color:var(--text-muted); font-size:11px;">${s.detail}</span></div>
+        <div class="num">${Math.round(s.seconds/60*10)/10 < 1 ? s.seconds+' Sek.' : Math.round(s.seconds/60)+' Min.'}</div>
+        <div><button class="btn secondary" style="min-height:34px; padding:6px 10px; font-size:11px;" onclick="startCornerTimer(${s.seconds}, '${s.name.replace(/'/g,"")}')">Timer</button></div>
+      </div>`).join('');
+  }
+}
+
+function switchStrengthMode(mode){
+  strengthMode = mode;
+  document.getElementById('modeKraftBtn').classList.toggle('sel', mode==='kraft');
+  document.getElementById('modeHyroxBtn').classList.toggle('sel', mode==='hyrox');
+  document.getElementById('kraftFormBlock').style.display = mode==='kraft' ? '' : 'none';
+  document.getElementById('hyroxFormBlock').style.display = mode==='hyrox' ? '' : 'none';
+  document.getElementById('cornerTimer').style.display = mode==='hyrox' ? 'flex' : 'none';
+  renderStrengthPlanList();
+}
+
+function getLastExerciseSets(exerciseName){
+  const past = STRENGTH_ENTRIES.filter(e=>e.mode!=='hyrox').slice().sort((a,b)=>a.date<b.date?1:-1);
+  for(const entry of past){
+    const match = entry.exercises && entry.exercises.find(x=>x.name===exerciseName);
+    if(match && match.sets && match.sets.length) return match.sets;
+  }
+  return null;
+}
+function renderStrengthForm(){
+  const el = document.getElementById('strExerciseRows');
+  const header = `<div class="strSetRow">
+      <div></div>
+      <div class="setlbl">Satz 1</div><div class="setlbl">Satz 2</div><div class="setlbl">Satz 3</div>
+    </div>`;
+  const rows = GK_PLAN.map((e,i)=>{
+    const displayName = displayNameFor(e);
+    const selectHtml = e.variants ? `<select onchange="setExerciseVariant('${e.name}', this.value)" style="margin-top:5px; font-size:10.5px; padding:5px 6px; min-height:30px; width:auto;">${e.variants.map(v=>`<option value="${v}" ${v===displayName?'selected':''}>${v}</option>`).join('')}</select>` : '';
+    const lastSets = getLastExerciseSets(displayName);
+    if(e.type==='time'){
+      return `<div class="strSetRow">
+        <div class="exname">${displayName}<br><span style="font-weight:400; color:var(--text-muted); font-size:10.5px;">${e.target}</span>${selectHtml}</div>
+        ${[1,2,3].map(s=>{
+          const last = lastSets ? lastSets[s-1] : null;
+          const ph = (last && last.seconds) ? last.seconds : 'Sek.';
+          return `
+          <div class="setpair">
+            <input type="number" placeholder="${ph}" id="strTime${i}_${s}" value="">
+            <button type="button" class="btn secondary" style="min-height:38px; padding:6px 8px; font-size:10.5px; flex:none;" onclick="startCornerTimer(${e.targetSeconds||30}, '${displayName.replace(/'/g,"")}')">▶</button>
+          </div>`;}).join('')}
+      </div>`;
+    }
+    return `<div class="strSetRow">
+      <div class="exname">${displayName}<br><span style="font-weight:400; color:var(--text-muted); font-size:10.5px;">${e.target}</span>${selectHtml}</div>
+      ${[1,2,3].map(s=>{
+        const last = lastSets ? lastSets[s-1] : null;
+        const phReps = (last && last.reps) ? last.reps : 'Wdh.';
+        const phWeight = (last && last.weight) ? last.weight : 'kg';
+        return `
+        <div class="setpair">
+          <input type="number" placeholder="${phReps}" id="strReps${i}_${s}">
+          <input type="number" placeholder="${phWeight}" id="strWeight${i}_${s}">
+        </div>`;}).join('')}
+    </div>`;
+  }).join('');
+
+  el.innerHTML = header + rows;
+}
+
+let selectedStrFeel = null;
+document.querySelectorAll('#strFeel button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('#strFeel button').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); selectedStrFeel = b.dataset.v;
+  });
+});
+let selectedHyroxFeel = null;
+function wireHyroxFeel(){
+  document.querySelectorAll('#hyroxFeel button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('#hyroxFeel button').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel'); selectedHyroxFeel = b.dataset.v;
+    });
+  });
+}
+document.getElementById('strSave').addEventListener('click', async ()=>{
+  const date = document.getElementById('strDate').value;
+  const msg = document.getElementById('strSaveMsg');
+  if(!date){ msg.textContent='Bitte Datum wählen.'; return; }
+  const exercises = GK_PLAN.map((e,i)=>{
+    const displayName = displayNameFor(e);
+    if(e.type==='time'){
+      const sets = [1,2,3].map(s=>({ seconds: document.getElementById(`strTime${i}_${s}`).value })).filter(s=>s.seconds);
+      return {name:displayName, type:'time', sets};
+    }
+    const sets = [1,2,3].map(s=>({
+      reps: document.getElementById(`strReps${i}_${s}`).value,
+      weight: document.getElementById(`strWeight${i}_${s}`).value,
+    })).filter(s=>s.reps || s.weight);
+    return {name:displayName, type:'reps', sets};
+  }).filter(x=>x.sets.length>0);
+  if(!exercises.length){ msg.textContent='Bitte mindestens einen Satz eintragen.'; return; }
+  const entry = {date, mode:'kraft', feeling:selectedStrFeel, exercises, source:'manual'};
+  STRENGTH_ENTRIES.push(entry);
+  await storageSet('strength-entries', STRENGTH_ENTRIES);
+  msg.textContent='Gespeichert ✓';
+  showSaveToast(selectedStrFeel);
+  renderAll();
+  setTimeout(()=>msg.textContent='',2500);
+});
+document.getElementById('hyroxSave').addEventListener('click', async ()=>{
+  const date = document.getElementById('hyroxDate').value;
+  const msg = document.getElementById('hyroxSaveMsg');
+  if(!date){ msg.textContent='Bitte Datum wählen.'; return; }
+  const entry = {date, mode:'hyrox', feeling:selectedHyroxFeel, exercises:[], source:'manual'};
+  STRENGTH_ENTRIES.push(entry);
+  await storageSet('strength-entries', STRENGTH_ENTRIES);
+  msg.textContent='Gespeichert ✓';
+  showSaveToast(selectedHyroxFeel);
+  renderAll();
+  setTimeout(()=>msg.textContent='',2500);
+});
+async function deleteStrengthEntry(idx){
+  if(!confirm('Diese Krafteinheit wirklich löschen?')) return;
+  STRENGTH_ENTRIES.splice(idx,1);
+  await storageSet('strength-entries', STRENGTH_ENTRIES);
+  renderAll();
+}
+function renderStrengthHistory(){
+  const el = document.getElementById('strHistory');
+  if(!STRENGTH_ENTRIES.length){ el.innerHTML = '<div class="infobox">Noch keine Krafteinheiten erfasst.</div>'; return; }
+  const withIdx = STRENGTH_ENTRIES.map((e,i)=>({...e, _idx:i}));
+  const sorted = withIdx.sort((a,b)=>a.date<b.date?1:-1);
+  el.innerHTML = sorted.map(e=>`
+    <div style="margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+      <div style="min-width:0;">
+        <div style="font-weight:700; font-size:13px;">${fmtDate(new Date(e.date))} <span class="pill" style="margin-left:6px;">${e.mode==='hyrox'?'Hyrox':'Kraft'} · Gefühl ${e.feeling||'–'}/5</span></div>
+        <div style="font-size:11.5px; color:var(--text-muted); margin-top:3px;">${e.exercises && e.exercises.length ? e.exercises.map(x=>`${x.name}: ${(x.sets||[]).map(s=> s.seconds? s.seconds+'s' : `${s.reps||'–'}×${s.weight||'–'}kg`).join(', ')}`).join(' · ') : (e.mode==='hyrox'?'Hyrox-Workout absolviert':'')}</div>
+      </div>
+      <button class="btn secondary" style="min-height:32px; padding:5px 9px; font-size:11px; flex:none;" onclick="deleteStrengthEntry(${e._idx})">Löschen</button>
+    </div>`).join('');
+}
+
+/* =====================================================================
+   TIMER (Ecke, für Hyrox & Dehnen/Mobility)
+===================================================================== */
+let timerInterval = null;
+let timerRemaining = 0;
+let timerTotal = 0;
+function beep(){
+  try{
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.value = 880;
+    gain.gain.setValueAtTime(0.25, ctx.currentTime);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.5);
+    setTimeout(()=>{
+      const osc2 = ctx.createOscillator(); const gain2 = ctx.createGain();
+      osc2.connect(gain2); gain2.connect(ctx.destination);
+      osc2.frequency.value = 1046;
+      gain2.gain.setValueAtTime(0.25, ctx.currentTime);
+      osc2.start(); osc2.stop(ctx.currentTime + 0.5);
+    }, 550);
+  }catch(e){ /* Audio nicht verfügbar */ }
+}
+function renderTimerDisplay(){
+  const m = Math.floor(timerRemaining/60), s = timerRemaining%60;
+  const disp = document.getElementById('cornerTimerDisplay');
+  if(disp) disp.textContent = `${m}:${String(s).padStart(2,'0')}`;
+}
+function startCornerTimer(seconds, label){
+  const widget = document.getElementById('cornerTimer');
+  widget.style.display = 'flex';
+  document.getElementById('cornerTimerLabel').textContent = label || 'Timer';
+  timerTotal = seconds; timerRemaining = seconds;
+  renderTimerDisplay();
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    timerRemaining--;
+    if(timerRemaining <= 0){
+      clearInterval(timerInterval);
+      timerRemaining = 0;
+      renderTimerDisplay();
+      beep();
+      setTimeout(()=>{ timerRemaining = timerTotal; renderTimerDisplay(); }, 600);
+    } else {
+      renderTimerDisplay();
+    }
+  }, 1000);
+}
+function pauseCornerTimer(){ clearInterval(timerInterval); }
+function resetCornerTimer(){ clearInterval(timerInterval); timerRemaining = timerTotal; renderTimerDisplay(); }
+function closeCornerTimer(){ clearInterval(timerInterval); document.getElementById('cornerTimer').style.display='none'; }
+
+/* =====================================================================
+   SAVE-TOAST (motivierendes Feedback)
+===================================================================== */
+const TOAST_MSGS_GOOD = [
+  'Stark gemacht! Eintrag gespeichert — weiter so. 💪',
+  'Gespeichert! Noch ein Baustein für deine Konstanz.',
+  'Klasse Einheit — ab in die Statistik damit. Gespeichert ✓',
+  'Sauber durchgezogen! Dein Fortschritt ist jetzt festgehalten.',
+  'Eintrag gespeichert — du bleibst dran, das zahlt sich aus!',
+  'Top! Wieder ein Schritt näher an deinen nächsten Bestzeiten.',
+];
+const TOAST_MSGS_HARD = [
+  'Auch wenn es sich schwer angefühlt hat: Du hast es durchgezogen — das zählt. Gespeichert ✓',
+  'Schwere Einheiten sind die, die dich am meisten stärker machen. Gut gemacht!',
+  'Nicht jeder Tag fühlt sich leicht an — dass du trotzdem dran geblieben bist, ist die eigentliche Leistung.',
+  'Anstrengend war es, aber du hast durchgehalten. Gespeichert ✓ Sei stolz auf dich.',
+  'Harte Einheit im Kasten. Genau solche Tage bringen dich langfristig weiter.',
+];
+function showSaveToast(feeling){
+  const pool = (feeling==='1'||feeling==='2') ? TOAST_MSGS_HARD : TOAST_MSGS_GOOD;
+  const msg = pool[Math.floor(Math.random()*pool.length)];
+  const toast = document.getElementById('saveToast');
+  document.getElementById('saveToastText').textContent = msg;
+  toast.style.display = 'block';
+  clearTimeout(window._toastTimeout);
+  window._toastTimeout = setTimeout(hideSaveToast, 6000);
+}
+function hideSaveToast(){ document.getElementById('saveToast').style.display = 'none'; }
+
+/* =====================================================================
+   RENDER: YOGA VIEW
+===================================================================== */
+const STRETCH_LIST = [
+  {name:'Nacken seitlich dehnen', detail:'Kopf sanft zur Schulter neigen, Gegenschulter aktiv nach unten ziehen. Hilft direkt gegen Verspannungen durch die Schreibtisch-/Schichtarbeit-Haltung.', seconds:25, perSide:true},
+  {name:'Schulterkreisen vor- und rückwärts', detail:'Große, langsame Kreise — löst Verspannungen im oberen Rücken/Nacken.', seconds:30},
+  {name:'Katze-Kuh', detail:'Wirbelsäule abwechselnd runden und strecken, im Atemrhythmus. Mobilisiert die gesamte Wirbelsäule, gut bei Skoliose-bedingten Verspannungen.', seconds:45},
+  {name:'Kindhaltung', detail:'Ruhig in die Dehnung atmen, unteren Rücken lang werden lassen.', seconds:60},
+  {name:'Wirbelsäulen-Drehsitz', detail:'Sanfte Rotation aus der Körpermitte — gleicht muskuläre Dysbalancen durch die Skoliose aus.', seconds:25, perSide:true},
+  {name:'Brustöffner im Türrahmen', detail:'Unterarm an den Rahmen, Körper sanft nach vorne drehen — wirkt der vorgebeugten Schreibtisch-/Lenkerhaltung entgegen.', seconds:25, perSide:true},
+  {name:'Plank (Stabi)', detail:'Unterarmstütz, Körper von Kopf bis Ferse eine gerade Linie. Kräftigt den Rumpf, der beim Laufen die Körpermitte stabilisiert und die Skoliose-bedingte Haltung unterstützt.', seconds:30},
+  {name:'Bird-Dog (Stabi)', detail:'Vierfüßlerstand, diagonal gegenüberliegenden Arm und Bein ausstrecken, kurz halten, Seite wechseln. Trainiert Rumpfstabilität und Balance — direkt laufrelevant.', seconds:30, perSide:true},
+  {name:'Toter Käfer / Dead Bug (Stabi)', detail:'Rückenlage, Knie und Arme angewinkelt nach oben, Gegenarm/-bein langsam absenken ohne den unteren Rücken vom Boden abzuheben. Kräftigt die tiefe Bauchmuskulatur besonders gelenkschonend.', seconds:30, perSide:true},
+];
+const YOGA_LIST = [
+  {name:'Taubenhaltung', detail:'Hüftöffner — kann bei Regelschmerzen spürbar entlasten, da er Verspannungen im Beckenbereich löst.', seconds:45, perSide:true},
+  {name:'Kindhaltung mit tiefer Bauchatmung', detail:'Bewusst in den Bauch atmen — aktiviert den Parasympathikus, wirkt beruhigend bei Krämpfen.', seconds:60},
+  {name:'Sanfter Drehsitz im Sitzen', detail:'Leichte Rotation, nichts erzwingen — löst Verspannungen im unteren Rücken.', seconds:30, perSide:true},
+  {name:'Beine hoch die Wand (Viparita Karani)', detail:'Fördert den venösen Rückfluss, wirkt sehr entspannend und kann leichte Wassereinlagerungen/Krämpfe lindern.', seconds:300},
+  {name:'Schmetterlingssitz mit Vorbeuge', detail:'Fußsohlen aneinander, sanft nach vorne sinken — öffnet die Hüfte, entlastet den unteren Rücken.', seconds:60},
+];
+function renderStretchList(elId, list){
+  const el = document.getElementById(elId);
+  el.innerHTML = list.map(s=>`
+    <div style="padding:10px 0; border-bottom:1px solid var(--line);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+        <div style="font-weight:700; font-size:13px;">${s.name}</div>
+        <button class="btn secondary" style="min-height:32px; padding:5px 10px; font-size:11px; flex:none;" onclick="startCornerTimer(${s.seconds}, '${s.name.replace(/'/g,"")}')">${s.perSide? 'Timer (je Seite)':'Timer'} · ${s.seconds>=60? Math.round(s.seconds/60)+' Min.' : s.seconds+' Sek.'}</button>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted); margin-top:4px; line-height:1.45;">${s.detail}</div>
+    </div>`).join('');
+}
+renderStretchList('stretchList', STRETCH_LIST);
+renderStretchList('yogaList', YOGA_LIST);
+document.getElementById('yogaTip').textContent = 'Zusatztipp: Wärme (Wärmflasche auf dem Bauch) und langsame, tiefe Atmung können Regelschmerzen zusätzlich lindern.';
+
+/* =====================================================================
+   RENDER: ZYKLUS VIEW
+===================================================================== */
+function renderCycleView(){
+  document.getElementById('cycStart').value = SETTINGS.cycleStart;
+  document.getElementById('cycLen').value = SETTINGS.cycleLen;
+  document.getElementById('cycDur').value = SETTINGS.periodDur;
+
+  const today = toDateOnly(new Date());
+  const p = periodInfoForDate(today);
+  const statusEl = document.getElementById('cycleStatus');
+  statusEl.innerHTML = p.onPeriod
+    ? `Heute: <strong>Periode, Tag ${p.periodDayNum}</strong> von ${SETTINGS.periodDur}. ${p.reduced? 'Trainingsplan ist automatisch reduziert.' : 'Noch annähernd normale Intensität möglich.'}`
+    : `Heute keine Periode. Nächste voraussichtlich ab <strong>${fmtDate(p.nextPeriodStart)}</strong>.`;
+
+  const phase = cyclePhaseForDate(today);
+  const phaseEl = document.getElementById('cyclePhaseBox');
+  if(phaseEl){
+    phaseEl.innerHTML = `
+      <div style="font-size:15px; font-weight:700; color:var(--rose-dark); margin-bottom:8px;">Aktuelle Phase: ${phase.name}</div>
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:.3px; color:var(--text-muted); font-weight:700; margin-bottom:4px;">Für dich</div>
+      <ul style="margin:0 0 10px 0; padding-left:18px; font-size:12.5px; line-height:1.6;">${phase.juliaTips.map(t=>`<li>${t}</li>`).join('')}</ul>
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:.3px; color:var(--text-muted); font-weight:700; margin-bottom:4px;">Für Johannes</div>
+      <ul style="margin:0; padding-left:18px; font-size:12.5px; line-height:1.6;">${phase.johannesTips.map(t=>`<li>${t}</li>`).join('')}</ul>
+      <div style="font-size:10.5px; color:var(--text-muted); margin-top:10px; font-style:italic;">Grobe Orientierung anhand deiner Zyklusdaten — jeder Körper reagiert individuell, das hier sind Anhaltspunkte, keine Regeln.</div>
+    `;
+  }
+
+  const body = document.getElementById('cycleTableBody');
+  let rows = '';
+  let cursor = toDateOnly(SETTINGS.cycleStart);
+  while(dayDiff(cursor, today) < 0) cursor = addDays(cursor, SETTINGS.cycleLen);
+  for(let i=0;i<5;i++){
+    const start = addDays(cursor, i*SETTINGS.cycleLen);
+    const reducedFrom = addDays(start, 2);
+    const reducedTo = addDays(start, SETTINGS.periodDur-1);
+    rows += `<tr><td class="txt">${fmtDate(start)} – ${fmtDate(addDays(start,SETTINGS.periodDur-1))}</td><td class="txt">${fmtDate(reducedFrom)} – ${fmtDate(reducedTo)}</td></tr>`;
+  }
+  body.innerHTML = rows;
+}
+document.getElementById('cycSave').addEventListener('click', async ()=>{
+  SETTINGS.cycleStart = document.getElementById('cycStart').value || SETTINGS.cycleStart;
+  SETTINGS.cycleLen = parseInt(document.getElementById('cycLen').value) || SETTINGS.cycleLen;
+  SETTINGS.periodDur = parseInt(document.getElementById('cycDur').value) || SETTINGS.periodDur;
+  await storageSet('settings', SETTINGS);
+  renderAll();
+});
+
+/* =====================================================================
+   RENDER: GEWICHT VIEW
+===================================================================== */
+function sortedWeights(){
+  return WEIGHT_ENTRIES.map((w,i)=>({...w, _idx:i})).sort((a,b)=> a.date < b.date ? -1 : 1);
+}
+async function deleteWeightEntry(idx){
+  if(!confirm('Diesen Gewichtseintrag wirklich löschen?')) return;
+  WEIGHT_ENTRIES.splice(idx,1);
+  await storageSet('weight-entries', WEIGHT_ENTRIES);
+  renderAll();
+}
+function renderWeightView(){
+  const sorted = sortedWeights();
+  const row = document.getElementById('weightStatRow');
+  if(row){
+    const last = sorted[sorted.length-1];
+    const first = sorted[0];
+    const delta = (last && first) ? +(last.weightKg - first.weightKg).toFixed(1) : null;
+    row.innerHTML = `
+      <div class="stattile"><div class="slabel">Aktuelles Gewicht</div><div class="sval">${last? last.weightKg+' kg' : '–'}</div><div class="ssub">${last? fmtDate(new Date(last.date)) : 'Noch kein Eintrag'}</div></div>
+      <div class="stattile"><div class="slabel">Veränderung gesamt</div><div class="sval">${delta!==null ? (delta>0?'+':'')+delta+' kg' : '–'}</div><div class="ssub">${first? 'seit '+fmtDate(new Date(first.date)) : ''}</div></div>
+    `;
+  }
+  const body = document.getElementById('weightTableBody');
+  if(body){
+    const desc = [...sorted].reverse();
+    body.innerHTML = desc.map((w,i)=>{
+      const prev = desc[i+1];
+      const d = prev ? +(w.weightKg - prev.weightKg).toFixed(1) : null;
+      return `<tr>
+        <td>${new Date(w.date).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'2-digit'})}</td>
+        <td class="num">${w.weightKg}</td>
+        <td class="num">${d===null?'–':(d>0?'+':'')+d}</td>
+        <td class="txt">${w.note||''}</td>
+        <td><button class="btn secondary" style="min-height:28px; padding:4px 8px; font-size:10.5px;" onclick="deleteWeightEntry(${w._idx})">Löschen</button></td>
+      </tr>`;
+    }).join('') || `<tr><td colspan="4" class="txt" style="color:var(--text-muted);">Noch keine Einträge — trag dein erstes Gewicht ein.</td></tr>`;
+  }
+}
+let chartWeight;
+function renderWeightChart(){
+  const canvas = document.getElementById('chartWeight');
+  if(!canvas) return;
+  if(typeof Chart === 'undefined'){
+    canvas.parentElement.innerHTML = '<div class="infobox">Diagramm konnte nicht geladen werden (keine Internetverbindung zur Chart-Bibliothek). Bitte Seite mit bestehender Internetverbindung neu laden.</div>';
+    return;
+  }
+  const sorted = sortedWeights();
+  if(chartWeight) chartWeight.destroy();
+  chartWeight = new Chart(canvas, {
+    type:'line',
+    data:{ labels:sorted.map(w=>new Date(w.date).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'})), datasets:[{label:'kg', data:sorted.map(w=>w.weightKg), borderColor:'#A32C52', backgroundColor:'rgba(217,79,114,.12)', tension:.3, pointRadius:3}] },
+    options: baseChartOpts()
+  });
+}
+document.getElementById('weightSave').addEventListener('click', async ()=>{
+  const date = document.getElementById('weightDate').value;
+  const val = parseFloat(document.getElementById('weightVal').value);
+  const note = document.getElementById('weightNote').value.trim();
+  const msg = document.getElementById('weightSaveMsg');
+  if(!date || !val){ msg.textContent='Bitte Datum und Gewicht ausfüllen.'; return; }
+  WEIGHT_ENTRIES.push({date, weightKg:val, note});
+  await storageSet('weight-entries', WEIGHT_ENTRIES);
+  msg.textContent = 'Gespeichert ✓';
+  document.getElementById('weightVal').value=''; document.getElementById('weightNote').value='';
+  renderAll();
+  renderWeightChart();
+  setTimeout(()=>msg.textContent='',2500);
+});
+
+/* =====================================================================
+   RENDER: STATISTIK VIEW (Chart.js)
+===================================================================== */
+let chartKm, chartPace, chartZone;
+function renderCharts(){
+  if(typeof Chart === 'undefined'){
+    ['chartKm','chartPace','chartZone'].forEach(id=>{
+      const c = document.getElementById(id);
+      if(c && c.parentElement) c.parentElement.innerHTML = '<div class="infobox">Diagramm konnte nicht geladen werden (keine Internetverbindung zur Chart-Bibliothek). Bitte Seite mit bestehender Internetverbindung neu laden.</div>';
+    });
+    return;
+  }
+  const runs = [...allRuns()].sort((a,b)=>a.date<b.date?-1:1);
+  // Km pro Monat (letzte 14 Monate)
+  const byMonth = {};
+  runs.forEach(r=>{
+    const m = r.date.slice(0,7);
+    byMonth[m] = (byMonth[m]||0) + (r.distanceKm||0);
+  });
+  const months = Object.keys(byMonth).sort().slice(-14);
+  const kmData = months.map(m=>+byMonth[m].toFixed(1));
+
+  const ctxKm = document.getElementById('chartKm');
+  if(chartKm) chartKm.destroy();
+  chartKm = new Chart(ctxKm, {
+    type:'bar',
+    data:{ labels:months, datasets:[{label:'km', data:kmData, backgroundColor:'#D94F72', borderRadius:5}] },
+    options: baseChartOpts()
+  });
+
+  // Pace-Entwicklung
+  const paceRuns = runs.filter(r=>r.paceSec && r.distanceKm>=3);
+  const ctxPace = document.getElementById('chartPace');
+  if(chartPace) chartPace.destroy();
+  chartPace = new Chart(ctxPace, {
+    type:'line',
+    data:{ labels:paceRuns.map(r=>r.date.slice(2)), datasets:[{label:'Pace (min/km)', data:paceRuns.map(r=>+(r.paceSec/60).toFixed(2)), borderColor:'#A32C52', backgroundColor:'rgba(217,79,114,.12)', tension:.3, pointRadius:2}] },
+    options: {...baseChartOpts(), scales:{...baseChartOpts().scales, y:{reverse:true, ticks:{color:'#83766F', font:{size:10}}, grid:{color:'#F0D9DD'}}}}
+  });
+
+  // Zonen-Verteilung
+  const zones = computeZones();
+  const counts = [0,0,0,0,0];
+  runs.forEach(r=>{ const z = zoneForHr(r.avgHr); if(z) counts[z.idx]++; });
+  const ctxZone = document.getElementById('chartZone');
+  if(chartZone) chartZone.destroy();
+  chartZone = new Chart(ctxZone, {
+    type:'bar',
+    data:{ labels:zones.map(z=>'Z'+ (zones.indexOf(z)+1)), datasets:[{label:'Anzahl Läufe', data:counts, backgroundColor:['#8FA6B8','#5FA687','#DDB13E','#DB7C3E','#BF3B3B'], borderRadius:5}] },
+    options: baseChartOpts()
+  });
+}
+function baseChartOpts(){
+  return {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{ x:{ticks:{color:'#83766F', font:{size:9}}, grid:{display:false}}, y:{ticks:{color:'#83766F', font:{size:10}}, grid:{color:'#F5EAEC'}} }
+  };
+}
+function renderStrengthProgress(){
+  const el = document.getElementById('strengthProgress');
+  if(!STRENGTH_ENTRIES.length){ el.innerHTML='<div class="infobox">Noch keine Kraftdaten für eine Verlaufsansicht — trag deine erste Einheit ein!</div>'; return; }
+  const byExercise = {};
+  STRENGTH_ENTRIES.forEach(e=>{
+    e.exercises.forEach(x=>{
+      const weights = (x.sets||[]).map(s=>parseFloat(s.weight)).filter(w=>!isNaN(w));
+      if(!weights.length) return;
+      const topSet = Math.max(...weights);
+      byExercise[x.name] = byExercise[x.name]||[];
+      byExercise[x.name].push({date:e.date, weight:topSet});
+    });
+  });
+  el.innerHTML = Object.entries(byExercise).map(([name,vals])=>{
+    vals.sort((a,b)=>a.date<b.date?-1:1);
+    const last = vals[vals.length-1];
+    const first = vals[0];
+    const delta = last.weight - first.weight;
+    return `<div class="exrow"><div class="exname">${name}</div><div class="num">${last.weight} kg</div><div>${delta!==0?`<span class="pill">${delta>0?'+':''}${delta} kg</span>`:''}</div></div>`;
+  }).join('');
+}
+
+
+/* =====================================================================
+   TOP BAR DATE
+===================================================================== */
+function renderTopbarDate(){
+  const today = new Date();
+  document.getElementById('todayWeekday').textContent = today.toLocaleDateString('de-DE',{weekday:'long'});
+  document.getElementById('todayDate').textContent = fmtDate(today);
+}
+
+/* =====================================================================
+   INIT
+===================================================================== */
+function renderAll(){
+  renderTopbarDate();
+  renderHomeWeek();
+  renderHomeStats();
+  renderHomePBs();
+  renderBadgesInto('homeBadges');
+  renderPlan();
+  renderZones();
+  renderRunTable();
+  renderStrengthPlanList();
+  renderStrengthForm();
+  renderStrengthHistory();
+  renderCycleView();
+  renderWeightView();
+  renderBadgesInto('badgeGrid');
+  renderStrengthProgress();
+  document.getElementById('runDate').value = fmtISO(new Date());
+  document.getElementById('strDate').value = fmtISO(new Date());
+  document.getElementById('hyroxDate').value = fmtISO(new Date());
+  document.getElementById('weightDate').value = fmtISO(new Date());
+}
+
+wireHyroxFeel();
+
+(async function init(){
+  await loadState();
+  renderAll();
+})();
+</script>
+</body>
+</html>
